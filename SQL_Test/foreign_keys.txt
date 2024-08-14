@@ -1,0 +1,9 @@
+﻿-- Add this to create command
+
+
+-- in Subcategory
+CONSTRAINT FK_Category FOREIGN KEY (CategoryId) REFERENCES Category(Id)
+
+-- in Contact
+CONSTRAINT FK_Category FOREIGN KEY (CategoryId) REFERENCES Category(Id)
+CONSTRAINT FK_Subcategory FOREIGN KEY (SubcategoryId) REFERENCES Subcategory(Id)
