@@ -42,6 +42,13 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
 
+            // Put all correlated subcategories pointers into category
+            // List is empty at the start (data is only in the database)
+            category.Subcategory = null;
+            ICollection<Subcategory> findedSubcategories = await _context.Subcategory
+                .Where(m => m.CategoryId == id).ToListAsync();
+            category.Subcategory = findedSubcategories;
+
             return View(category);
         }
 
