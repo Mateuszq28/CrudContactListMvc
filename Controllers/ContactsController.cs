@@ -68,8 +68,8 @@ namespace CrudContactListMvc.Controllers
         [Authorize]
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id");
-            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
+            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name");
             return View();
         }
 
@@ -87,8 +87,8 @@ namespace CrudContactListMvc.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", contact.CategoryId);
-            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Id", contact.SubcategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", contact.CategoryId);
+            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name", contact.SubcategoryId);
             return View(contact);
         }
 
