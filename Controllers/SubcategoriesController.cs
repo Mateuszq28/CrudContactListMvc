@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CrudContactListMvc.Data;
 using CrudContactListMvc.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CrudContactListMvc.Controllers
 {
@@ -27,6 +28,7 @@ namespace CrudContactListMvc.Controllers
         }
 
         // GET: Subcategories/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +48,7 @@ namespace CrudContactListMvc.Controllers
         }
 
         // GET: Subcategories/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id");
@@ -57,6 +60,7 @@ namespace CrudContactListMvc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Name,CategoryId")] Subcategory subcategory)
         {
             if (ModelState.IsValid)
@@ -70,6 +74,7 @@ namespace CrudContactListMvc.Controllers
         }
 
         // GET: Subcategories/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,6 +96,7 @@ namespace CrudContactListMvc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CategoryId")] Subcategory subcategory)
         {
             if (id != subcategory.Id)
@@ -123,6 +129,7 @@ namespace CrudContactListMvc.Controllers
         }
 
         // GET: Subcategories/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -144,6 +151,7 @@ namespace CrudContactListMvc.Controllers
         // POST: Subcategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var subcategory = await _context.Subcategory.FindAsync(id);
