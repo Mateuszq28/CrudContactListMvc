@@ -26,6 +26,22 @@ namespace CrudContactListMvc.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: Contacts/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+
+        // PoST: Contacts/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index", await _context.Contact.Where( j => (j.Name.Contains(SearchPhrase) ||
+                                                                     j.Surname.Contains(SearchPhrase) ||
+                                                                     j.Email.Contains(SearchPhrase) ||
+                                                                     //j.BirthDate.Date.Equals(DateTime.Parse(SearchPhrase).Date) ||
+                                                                     j.Phone.Contains(SearchPhrase)) ).ToListAsync());
+        }
+
         // GET: Contacts/Details/5
         public async Task<IActionResult> Details(int? id)
         {
