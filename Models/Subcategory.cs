@@ -11,7 +11,7 @@ namespace CrudContactListMvc.Models
 
 
         // one-to-one
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
         public int CategoryId { get; set; }
 
         public Subcategory()

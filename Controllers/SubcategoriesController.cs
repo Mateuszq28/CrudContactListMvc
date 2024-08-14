@@ -51,7 +51,7 @@ namespace CrudContactListMvc.Controllers
         [Authorize]
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return View();
         }
 
@@ -63,13 +63,14 @@ namespace CrudContactListMvc.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Name,CategoryId")] Subcategory subcategory)
         {
+            //subcategory.Category = await _context.Category.Where(m => m.Id == subcategory.CategoryId).FirstOrDefaultAsync();
             if (ModelState.IsValid)
             {
                 _context.Add(subcategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", subcategory.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", subcategory.CategoryId);
             return View(subcategory);
         }
 
