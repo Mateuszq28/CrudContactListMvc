@@ -72,7 +72,7 @@
             var index = select.selectedIndex;
             var text = select.options[index].text;
             //if option's text is not Business, hide the second dropdownlist.
-            if (text == "Business") {
+            if (text != "Business") {
                 //hiden the dropdownlist
                 document.getElementById("hiddenSubcategory").style.display = 'none';
             } else {
