@@ -74,10 +74,15 @@ namespace CrudContactListMvc.Controllers
             //ViewBag.DropDownCategory = "Business";
 
 
+            // Send emails to View. This are emails from the Database
+            // Reason: They must be UNIQUE
+            List<string> emails = _context.Contact.Select(m => m.Email).ToList();
+            ViewBag.emails = emails;
+
+
+
+
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
-
-
-
 
 
 
