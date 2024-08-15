@@ -44,12 +44,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Category" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId" onchange="Select()"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="hiddenSubcategory">
                 <label asp-for="Subcategory" class="control-label"></label>
-                <select asp-for="SubcategoryId" class ="form-control" asp-items="ViewBag.SubcategoryId"></select>
-            </div>
+                <select asp-for="SubcategoryId" class="form-control" asp-items="ViewBag.SubcategoryId"></select>
+            </div>            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -61,6 +61,31 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<!-- https://stackoverflow.com/questions/74607305/how-do-you-hide-a-div-element-based-on-user-input-on-a-razor-page -->
+@section scripts
+{
+    <script>
+        function Select() {
+            //get the element by id
+            var select = document.getElementById("CategoryId");
+            //get the option's text
+            var index = select.selectedIndex;
+            var text = select.options[index].text;
+            //if option's text is not Business, hide the second dropdownlist.
+            if (text != "Business") {
+                //hiden the dropdownlist
+                document.getElementById("hiddenSubcategory").style.display = 'none';
+            } else {
+                //show the dropdownlist
+                document.getElementById("hiddenSubcategory").style.display = 'block';
+            }
+        }
+    </script>
+
+
+    <!-- DEfault View block element -->
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
