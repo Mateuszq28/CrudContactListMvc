@@ -75,7 +75,36 @@ namespace CrudContactListMvc.Controllers
 
 
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
-            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name");
+
+
+
+
+
+
+            // Working, but pointless - it should be done in Views JavaScript
+
+            var subcategories = _context.Category.ToList();
+            // Create a list of SelectListItem
+            var subcategoryList = subcategories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.Name
+            }).ToList();
+            // Add a new option
+            subcategoryList.Insert(0, new SelectListItem { Value = "", Text = "" });
+            // Pass the list to the SelectList constructor
+            ViewData["SubcategoryId"] = new SelectList(subcategoryList, "Value", "Text");
+
+
+
+
+            // Doesn't working
+
+            //SelectList slSubcategory = new SelectList(_context.Subcategory, "Id", "Name");
+            //slSubcategory.Insert(0, new SelectListItem { Value = "", Text = "" });
+            //ViewData["SubcategoryId"] = slSubcategory;
+
+
             return View();
         }
 
