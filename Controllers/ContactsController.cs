@@ -83,6 +83,7 @@ namespace CrudContactListMvc.Controllers
 
             // Working, but pointless - it should be done in Views JavaScript
 
+            /*
             var subcategories = _context.Category.ToList();
             // Create a list of SelectListItem
             var subcategoryList = subcategories.Select(c => new SelectListItem
@@ -94,6 +95,7 @@ namespace CrudContactListMvc.Controllers
             subcategoryList.Insert(0, new SelectListItem { Value = "", Text = "" });
             // Pass the list to the SelectList constructor
             ViewData["SubcategoryId"] = new SelectList(subcategoryList, "Value", "Text");
+            */
 
 
 
@@ -103,6 +105,11 @@ namespace CrudContactListMvc.Controllers
             //SelectList slSubcategory = new SelectList(_context.Subcategory, "Id", "Name");
             //slSubcategory.Insert(0, new SelectListItem { Value = "", Text = "" });
             //ViewData["SubcategoryId"] = slSubcategory;
+
+
+
+            // NULL values in Selection List should be implemented in Views JavaScript
+            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name");
 
 
             return View();
