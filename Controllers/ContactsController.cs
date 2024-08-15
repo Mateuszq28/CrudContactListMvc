@@ -68,6 +68,12 @@ namespace CrudContactListMvc.Controllers
         [Authorize]
         public IActionResult Create()
         {
+            // string for condition to show drop-down subcategory menu
+            Category expectedCategory = _context.Category.Where(m => m.Id == 1).First();
+            ViewBag.DropDownCategory = expectedCategory.Name;
+            //ViewBag.DropDownCategory = "Business";
+
+
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name");
             return View();
