@@ -65,9 +65,11 @@
 @section scripts
 {
     <script>
-        function Select() {
+        function Select()
+        {
             //get the element by id
             var select = document.getElementById("CategoryId");
+            var selectSubcat = document.getElementById("SubcategoryId");
             //get the option's text
             var index = select.selectedIndex;
             var text = select.options[index].text;
@@ -80,14 +82,54 @@
                 //hiden the dropdownlist
                 document.getElementById("hiddenSubcategory").style.display = 'none';
 
-                // Here will be setting null values at SelectList
-                // var subcat = document.getElementById("SubcategoryId");
+                // Setting null value at SelectList
+                var nullVal = "";
+                var findedNullOption = selectSubcat.querySelector(`option[value="${nullVal}"]`);
+                if (findedNullOption == null)
+                {
+                    var newOption = new Option('', '');
+                    selectSubcat.add(newOption);
+                    selectSubcat.value = '';
+                }
 
             } else {
                 //show the dropdownlist
                 document.getElementById("hiddenSubcategory").style.display = 'block';
+
+
+                // Log all option values
+                // var selectSubcat = document.getElementById("SubcategoryId");
+                // console.log('Current options:');
+                // for (let option of selectSubcat.options) {
+                //     console.log(option.value);
+                // }
+
+
+                // Removing null value at SelectList
+                var valueToRemove = "";
+                var optionToRemove = selectSubcat.querySelector(`option[value="${valueToRemove}"]`);
+                console.log("optionToRemove");
+                console.log(optionToRemove);
+                if (optionToRemove)
+                {
+                    console.log("removed");
+                    optionToRemove.remove();
+                }
+                // Set the first remaining element as the active value
+                if (selectSubcat.options.length > 0)
+                {
+                    selectSubcat.selectedIndex = 0;
+                }
+
+
             }
         }
+
+
+        // function CheckEmail()
+        // {
+
+        // }
     </script>
 
 
