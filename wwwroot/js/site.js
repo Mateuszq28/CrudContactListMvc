@@ -5,4 +5,12 @@
 
 $(function () {
     console.log("Page is ready");
+
+
+
+    //$("#buttonGetContactIndex").click(function () {
+    //    event.preventDefault();
+    //    console.log("select button was clicked");
+    //})
+
 });
