@@ -1,6 +1,58 @@
 ﻿@model IEnumerable<CrudContactListMvc.Models.Spa>
 
-<h1>Single Page Application</h1>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
 
-<h2>Contacts</h2>
+<style>
+	.body {
+		font-family: "Space Grotesk";
+	}
 
+	.spa-class-box {
+		background-color: #D6D9CC;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
+		border: solid #0D0D0D 2px;
+		border-radius: 25px;
+		width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+		min-height: 700px;
+	}
+	
+	.spa-view-button {
+		background-color: #6F7356;
+	}
+	
+	.spa-view-button button {
+		marign-top: 20px;
+		marign-bottom: 20px;
+		background-color: #BF3604;
+	}
+	
+	.spa-view-content {
+		background-color: #D99982;
+		height: 300px;
+	}
+
+</style>
+
+<body>
+	<h1>Single Page Application</h1>
+
+
+	<div class="spa-class-box">
+		<h2>Contacts</h2>
+		<div class="spa-view-button">
+			<button>Get Contact Index</button>
+		</div>
+		<div class="spa-view-content">
+			<p>After button click here will be loaded content.</p>
+		</div>
+	</div>
+
+</body>
