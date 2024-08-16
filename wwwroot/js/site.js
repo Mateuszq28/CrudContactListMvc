@@ -19,6 +19,7 @@ $(function () {
             data: $("form").serialize(),
             success: function (data) {
                 console.log(data);
+                $("#contactIndexContent").html(data)
             }
         });
 

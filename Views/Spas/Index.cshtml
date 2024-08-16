@@ -7,8 +7,15 @@
 </head>
 
 <style>
-	.body {
-		font-family: "Space Grotesk";
+	.space-grotesk-regular {
+		font-family: "Space Grotesk", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	* {
+		font-family: space-grotesk-regular;
 	}
 
 	.spa-class-box {
@@ -42,6 +49,7 @@
 
 <body>
 	<h1>Single Page Application</h1>
+	<p>Current time: @DateTime.Now</p>
 
 
 	<div class="spa-class-box">
@@ -54,7 +62,7 @@
 						value="butPressed">Get Contact Index</button>
 			</form>
 		</div>
-		<div class="spa-view-content">
+		<div class="spa-view-content" id="contactIndexContent">
 			<p>After button click, here will be loaded content.</p>
 		</div>
 	</div>
