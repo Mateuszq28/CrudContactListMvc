@@ -134,7 +134,9 @@ namespace CrudContactListMvc.Controllers
         [Authorize]
         public async Task<IActionResult> Create(IFormCollection form)
         {
-            var contact = new Contact
+            string newSubcatName = form["NewCategory"];
+
+            Contact contact = new Contact
             {
                 //Id = int.Parse(form["Id"]),
                 Email = form["Email"],
@@ -143,14 +145,13 @@ namespace CrudContactListMvc.Controllers
                 Password = form["Password"],
                 Phone = form["Phone"],
                 BirthDate = DateTime.Parse(form["BirthDate"]),
-                CategoryId = int.Parse(form["CategoryId"]),
-                SubcategoryId = int.Parse(form["SubcategoryId"])
+                CategoryId = int.Parse(form["CategoryId"])
             };
 
-            if (contact.SubcategoryId == 3)
+            // SubcategoryId can be in at least 3 different states
+            if (contact.CategoryId == 3)
             {
                 int catId = 3;
-                string newSubcatName = form["NewCategory"];
                 Subcategory newSub = new Subcategory
                 {
                     Name = newSubcatName,
@@ -159,7 +160,16 @@ namespace CrudContactListMvc.Controllers
                 _context.Add(newSub);
                 await _context.SaveChangesAsync();
 
-                contact.SubcategoryId = _context.Subcategory.Where(m => m.Name == newSubcatName).Last().Id;
+                contact.SubcategoryId = newSub.Id;
+                //contact.SubcategoryId = _context.Subcategory.Where(m => m.Name == newSubcatName).Last().Id;
+            }
+            else if (contact.CategoryId == 2)
+            {
+                contact.SubcategoryId = null;
+            }
+            else
+            {
+                contact.SubcategoryId = int.Parse(form["SubcategoryId"]);
             }
             
 

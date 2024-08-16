@@ -51,8 +51,8 @@
                 <select asp-for="SubcategoryId" class="form-control" asp-items="ViewBag.SubcategoryId"></select>
             </div>
             <div class="form-group" id="NewCategoryDiv" style="display: none;">
-                <label value="NewCategory" class="control-label"></label>
-                <input id="NewCategory" class="form-control" onchange="SaveNewSubcategory()" />
+                <label class="control-label">New subcategory</label>
+                <input id="NewCategory" name="NewCategory" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -148,10 +148,6 @@
 
         }
 
-
-        // function SaveNewSubcategory(){
-
-        // }
 
 
     </script>
