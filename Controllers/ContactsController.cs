@@ -120,7 +120,7 @@ namespace CrudContactListMvc.Controllers
 
 
             // NULL values in Selection List should be implemented in Views JavaScript
-            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name");
+            ViewData["SubcategoryId"] = new SelectList(_context.Subcategory.Where(m => m.CategoryId == 1), "Id", "Name");
 
 
             return View();
