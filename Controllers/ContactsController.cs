@@ -74,6 +74,12 @@ namespace CrudContactListMvc.Controllers
             //ViewBag.DropDownCategory = "Business";
 
 
+            // other category - it is used to show text field instead of drop-down
+            Category otherCategoryName = _context.Category.Where(m => m.Id == 3).First();
+            ViewBag.otherCategoryName = otherCategoryName.Name;
+            //ViewBag.otherCategoryName = "Other";
+
+
             // Send emails to View. This are emails from the Database
             // Reason: They must be UNIQUE
             List<string> emails = _context.Contact.Select(m => m.Email).ToList();

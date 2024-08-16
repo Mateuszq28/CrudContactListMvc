@@ -49,7 +49,11 @@
             <div class="form-group" id="hiddenSubcategory">
                 <label asp-for="Subcategory" class="control-label"></label>
                 <select asp-for="SubcategoryId" class="form-control" asp-items="ViewBag.SubcategoryId"></select>
-            </div>            
+            </div>
+            <div class="form-group" id="NewCategoryDiv" style="display: none;">
+                <label value="NewCategory" class="control-label"></label>
+                <input id="NewCategory" class="form-control" onchange="SaveNewSubcategory()" />
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -120,6 +124,16 @@
 
 
             }
+
+
+            var otherCategoryName = "@ViewBag.otherCategoryName";
+            if (text == otherCategoryName) {
+                document.getElementById("NewCategoryDiv").style.display = 'block';
+            }
+            else {
+                document.getElementById("NewCategoryDiv").style.display = 'none';
+            }
+
         }
 
 
@@ -133,6 +147,13 @@
             }
 
         }
+
+
+        // function SaveNewSubcategory(){
+
+        // }
+
+
     </script>
 
 
