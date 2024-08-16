@@ -11,6 +11,17 @@ $(function () {
     $("#buttonGetContactIndex").click(function () {
         event.preventDefault();
         console.log("select button was clicked");
+
+
+        $.ajax({
+            type: "POST",
+            url: 'Spas/ShowContactIndex',
+            data: $("form").serialize(),
+            success: function (data) {
+                console.log(data);
+            }
+        });
+
     })
 
 });
