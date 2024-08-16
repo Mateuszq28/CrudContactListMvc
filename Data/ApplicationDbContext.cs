@@ -13,5 +13,6 @@ namespace CrudContactListMvc.Data
         public DbSet<CrudContactListMvc.Models.Category> Category { get; set; } = default!;
         public DbSet<CrudContactListMvc.Models.Subcategory> Subcategory { get; set; } = default!;
         public DbSet<CrudContactListMvc.Models.Contact> Contact { get; set; } = default!;
+        public DbSet<CrudContactListMvc.Models.Spa> Spa { get; set; } = default!;
     }
 }

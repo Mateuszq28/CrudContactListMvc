@@ -2,9 +2,10 @@
 {
     public class Spa
     {
-        public Subcategory Subcategory { get; set; }
-        public Category Category { get; set; }
-        public Contact Contact { get; set; }
+        public int Id { get; set; }
+        public List<Subcategory> SubcategoryList { get; set; }
+        public List<Category> CategoryList { get; set; }
+        public List<Contact> ContactList { get; set; }
 
         public Spa()
         {
