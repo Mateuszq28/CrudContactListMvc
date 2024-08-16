@@ -132,8 +132,39 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("Id,Email,Name,Surname,Password,Phone,BirthDate,CategoryId,SubcategoryId")] Contact contact)
+        public async Task<IActionResult> Create(IFormCollection form)
         {
+            var contact = new Contact
+            {
+                //Id = int.Parse(form["Id"]),
+                Email = form["Email"],
+                Name = form["Name"],
+                Surname = form["Surname"],
+                Password = form["Password"],
+                Phone = form["Phone"],
+                BirthDate = DateTime.Parse(form["BirthDate"]),
+                CategoryId = int.Parse(form["CategoryId"]),
+                SubcategoryId = int.Parse(form["SubcategoryId"])
+            };
+
+            if (contact.SubcategoryId == 3)
+            {
+                int catId = 3;
+                string newSubcatName = form["NewCategory"];
+                Subcategory newSub = new Subcategory
+                {
+                    Name = newSubcatName,
+                    CategoryId = catId
+                };
+                _context.Add(newSub);
+                await _context.SaveChangesAsync();
+
+                contact.SubcategoryId = _context.Subcategory.Where(m => m.Name == newSubcatName).Last().Id;
+            }
+            
+
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(contact);
