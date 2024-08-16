@@ -23,7 +23,7 @@ namespace CrudContactListMvc.Controllers
         public async Task<IActionResult> ShowContactIndex()
         {
             var applicationDbContext = _context.Contact.Include(c => c.Category).Include(c => c.Subcategory);
-            return View(await applicationDbContext.ToListAsync());
+            return PartialView(await applicationDbContext.ToListAsync());
         }
     }
 }

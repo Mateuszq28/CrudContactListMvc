@@ -8,9 +8,9 @@ $(function () {
 
 
 
-    //$("#buttonGetContactIndex").click(function () {
-    //    event.preventDefault();
-    //    console.log("select button was clicked");
-    //})
+    $("#buttonGetContactIndex").click(function () {
+        event.preventDefault();
+        console.log("select button was clicked");
+    })
 
 });
