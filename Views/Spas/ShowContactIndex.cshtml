@@ -4,6 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    form {
+        display: inline;
+    }
+</style>
+
 <h1>Contacts</h1>
 <p>Current time: @DateTime.Now</p>
 
@@ -58,9 +64,30 @@
                     @Html.DisplayFor(modelItem => item.Subcategory.Name)
                 </td>
                 <td>
-                    <a id="buttonEdit" asp-controller="Spas" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a id="buttonDetails" asp-controller="Spas" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a id="buttonDelete" asp-controller="Spas" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <form id="form_buttonEdit" asp-controller="Spas" asp-action="Edit" asp-route-id="@item.Id">
+                        <button id="buttonEdit"
+                                type="submit"
+                                name="buttonEdit"
+                                value="butPressed">
+                            Edit
+                        </button>
+                    </form> |
+                    <form id="form_buttonDetails" asp-controller="Spas" asp-action="Details" asp-route-id="@item.Id">
+                        <button id="buttonDetails"
+                                type="submit"
+                                name="buttonDetails"
+                                value="butPressed">
+                            Details
+                        </button>
+                    </form> |
+                    <form id="form_buttonDelete" asp-controller="Spas" asp-action="Delete" asp-route-id="@item.Id">
+                        <button id="buttonDelete"
+                                type="submit"
+                                name="buttonDelete"
+                                value="butPressed">
+                            Delete
+                        </button>
+                    </form>
                 </td>
             </tr>
         }
@@ -92,8 +119,9 @@
 
 
     // CONTACT INDEX
-    var crBut = document.getElementById("#buttonCreate");
 
+
+    var crBut = document.getElementById("#buttonCreate");
     crBut.onclick = function (event) {
         event.preventDefault();
 
@@ -103,6 +131,35 @@
         console.log(data_in);
 
         getPartialViewAjax('Spas/Create', data_in);
+    };
+
+
+
+    var edBut = document.getElementById("#buttonEdit");
+    edBut.onclick = function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonEdit").serialize();
+
+        getPartialViewAjax('Spas/Edit', data_in);
+    };
+
+    var dtBut = document.getElementById("#buttonDetails");
+    dtBut.onclick = function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonDetails").serialize();
+
+        getPartialViewAjax('Spas/Details', data_in);
+    };
+
+    var delBut = document.getElementById("#buttonDelete");
+    delBut.onclick = function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonDelete").serialize();
+
+        getPartialViewAjax('Spas/Delete', data_in);
     };
 
 </script>

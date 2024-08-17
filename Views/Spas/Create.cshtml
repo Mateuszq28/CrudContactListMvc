@@ -12,7 +12,7 @@
     }
 </style>
 
-<div class="main_html">
+<div class="main_html" id="this_page">
 
 <h1>Create</h1>
 
@@ -73,8 +73,70 @@
 </div>
 
 <div>
-    <a asp-controller="Spas" asp-action="Index">Back to List</a>
+    <form id="form_buttonGetContactIndex" asp-action="ShowContactIndex" asp-controller="Spas">
+        <button id="buttonGetContactIndex2"
+                name="buttonGetContactIndex"
+                type="submit"
+                value="butPressed">
+            Back to List
+        </button>
+    </form>
 </div>
 
+<div id="demo">
+    
+</div>
 
 </div>
+
+<script>
+
+    // update HTML elemendt by its id
+    function updateElement(id, data) {
+        console.log(data);
+        $(id).html(data)
+    }
+
+
+    function getPartialViewAjax(path, data_in) {
+        $.ajax({
+            type: "POST",
+            url: path,
+            data: data_in,
+            success: function (response) {
+                console.log("data posted to the controller:");
+                console.log(data_in);
+                updateElement("#this_page", response);
+                // updateElement("#demo", response);
+            }
+        });
+    }
+
+
+
+
+    /*
+    var backBut = document.getElementById("#buttonGetContactIndex2");
+    backBut.onclick = function (event) {
+        event.preventDefault();
+        // data_in = $("#form_buttonGetContactIndex").serialize();
+        data_in = $("#form_buttonGetContactIndex").serialize();
+        getPartialViewAjax('Spas/ShowContactIndex', data_in);
+    };
+    */
+    
+
+    
+    $("#buttonGetContactIndex2").click(function (event) {
+        event.preventDefault();
+        // data_in = $("#form_buttonGetContactIndex").serialize();
+        data_in = $("#form_buttonGetContactIndex").serialize();
+        getPartialViewAjax('Spas/ShowContactIndex', data_in);
+    });
+    
+
+
+
+
+</script>
+
