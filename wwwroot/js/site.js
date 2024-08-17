@@ -39,7 +39,7 @@ $(function () {
     // CATCH response with AJAX
     // AJAX <-- GET from server
     // AJAX --> response
-    function getPartialViewAjax(url, data_in) {
+    function getPartialViewAjax(url, data_in, id_put_response) {
         $.ajax({
             type: "POST",
             url: url,
@@ -66,7 +66,14 @@ $(function () {
                 myLog(response);
                 // |                              |
                 // ------- block to delete --------
-                return response;
+                updateElement(id = id_put_response, data_to_put = response);
+                    // ------- block to delete --------
+                    // |                              |
+                myLog("--getPartialViewAjax--");
+                myLog("Element updated:");
+                myLog(id_put_response);
+                // |                              |
+                // ------- block to delete --------
             }
         });
     }
@@ -96,18 +103,11 @@ $(function () {
             myLog(data_in_serialized);
             // |                              |
             // ------- block to delete --------
-            response = getPartialViewAjax(url_server, data_in_serialized);
-            // ------- block to delete --------
+            response = getPartialViewAjax(url_server, data_in_serialized, id_put_response);
+                        // ------- block to delete --------
             // |                              |
-            myLog("response from server:");
-            myLog(response);
-            // |                              |
-            // ------- block to delete --------
-            updateElement(id_put_response, response);
-            // ------- block to delete --------
-            // |                              |
-            myLog("Element updated:");
-            myLog(id_put_response);
+            myLog("--ajaxWrapper--");
+            myLog("end of ajaxWrapper");
             // |                              |
             // ------- block to delete --------
         });
