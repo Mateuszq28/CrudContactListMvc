@@ -34,19 +34,19 @@ namespace CrudContactListMvc.Controllers
         public async Task<IActionResult> Contact_Index()
         {
             var applicationDbContext = _context.Contact.Include(c => c.Category).Include(c => c.Subcategory);
-            return View(await applicationDbContext.ToListAsync());
+            return PartialView(await applicationDbContext.ToListAsync());
         }
 
         // GET: Contacts/ShowSearchForm
         public async Task<IActionResult> Contact_ShowSearchForm()
         {
-            return View();
+            return PartialView();
         }
 
         // PoST: Contacts/ShowSearchResults
         public async Task<IActionResult> Contact_ShowSearchResults(String SearchPhrase)
         {
-            return View("Index", await _context.Contact.Where(j => (j.Name.Contains(SearchPhrase) ||
+            return PartialView("Index", await _context.Contact.Where(j => (j.Name.Contains(SearchPhrase) ||
                                                                      j.Surname.Contains(SearchPhrase) ||
                                                                      j.Email.Contains(SearchPhrase) ||
                                                                      //j.BirthDate.Date.Equals(DateTime.Parse(SearchPhrase).Date) ||
@@ -71,7 +71,7 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
 
-            return View(contact);
+            return PartialView(contact);
         }
 
         // GET: Contacts/Create
@@ -133,7 +133,7 @@ namespace CrudContactListMvc.Controllers
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory.Where(m => m.CategoryId == 1), "Id", "Name");
 
 
-            return View();
+            return PartialView();
         }
 
         // POST: Contacts/Create
@@ -193,7 +193,7 @@ namespace CrudContactListMvc.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", contact.CategoryId);
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name", contact.SubcategoryId);
-            return View(contact);
+            return PartialView(contact);
         }
 
         // GET: Contacts/Edit/5
@@ -212,7 +212,7 @@ namespace CrudContactListMvc.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", contact.CategoryId);
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Id", contact.SubcategoryId);
-            return View(contact);
+            return PartialView(contact);
         }
 
         // POST: Contacts/Edit/5
@@ -250,7 +250,7 @@ namespace CrudContactListMvc.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", contact.CategoryId);
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Id", contact.SubcategoryId);
-            return View(contact);
+            return PartialView(contact);
         }
 
         // GET: Contacts/Delete/5
@@ -271,7 +271,7 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
 
-            return View(contact);
+            return PartialView(contact);
         }
 
         // POST: Contacts/Delete/5
@@ -304,7 +304,7 @@ namespace CrudContactListMvc.Controllers
         // GET: Categories
         public async Task<IActionResult> Category_Index()
         {
-            return View(await _context.Category.ToListAsync());
+            return PartialView(await _context.Category.ToListAsync());
         }
 
         // GET: Categories/Details/5
@@ -330,14 +330,14 @@ namespace CrudContactListMvc.Controllers
                 .Where(m => m.CategoryId == id).ToListAsync();
             category.Subcategory = findedSubcategories;
 
-            return View(category);
+            return PartialView(category);
         }
 
         // GET: Categories/Create
         [Authorize]
         public IActionResult Category_Create()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: Categories/Create
@@ -354,7 +354,7 @@ namespace CrudContactListMvc.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(category);
+            return PartialView(category);
         }
 
         // GET: Categories/Edit/5
@@ -371,7 +371,7 @@ namespace CrudContactListMvc.Controllers
             {
                 return NotFound();
             }
-            return View(category);
+            return PartialView(category);
         }
 
         // POST: Categories/Edit/5
@@ -407,7 +407,7 @@ namespace CrudContactListMvc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(category);
+            return PartialView(category);
         }
 
         // GET: Categories/Delete/5
@@ -426,7 +426,7 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
 
-            return View(category);
+            return PartialView(category);
         }
 
         // POST: Categories/Delete/5
@@ -460,7 +460,7 @@ namespace CrudContactListMvc.Controllers
         public async Task<IActionResult> Subcategory_Index()
         {
             var applicationDbContext = _context.Subcategory.Include(s => s.Category);
-            return View(await applicationDbContext.ToListAsync());
+            return PartialView(await applicationDbContext.ToListAsync());
         }
 
         // GET: Subcategories/Details/5
@@ -480,7 +480,7 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
 
-            return View(subcategory);
+            return PartialView(subcategory);
         }
 
         // GET: Subcategories/Create
@@ -488,7 +488,7 @@ namespace CrudContactListMvc.Controllers
         public IActionResult Subcategory_Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
-            return View();
+            return PartialView();
         }
 
         // POST: Subcategories/Create
@@ -507,7 +507,7 @@ namespace CrudContactListMvc.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", subcategory.CategoryId);
-            return View(subcategory);
+            return PartialView(subcategory);
         }
 
         // GET: Subcategories/Edit/5
@@ -525,7 +525,7 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", subcategory.CategoryId);
-            return View(subcategory);
+            return PartialView(subcategory);
         }
 
         // POST: Subcategories/Edit/5
@@ -562,7 +562,7 @@ namespace CrudContactListMvc.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", subcategory.CategoryId);
-            return View(subcategory);
+            return PartialView(subcategory);
         }
 
         // GET: Subcategories/Delete/5
@@ -582,7 +582,7 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
 
-            return View(subcategory);
+            return PartialView(subcategory);
         }
 
         // POST: Subcategories/Delete/5
