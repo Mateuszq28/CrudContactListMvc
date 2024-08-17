@@ -134,7 +134,7 @@
     };
 
 
-
+    
     var edBut = document.getElementById("#buttonEdit");
     edBut.onclick = function (event) {
         event.preventDefault();
@@ -143,6 +143,16 @@
 
         getPartialViewAjax('Spas/Edit', data_in);
     };
+    
+    /*
+    $("#buttonEdit").click( function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonEdit").serialize();
+
+        getPartialViewAjax('Spas/Edit', data_in);
+    });
+    */
 
     var dtBut = document.getElementById("#buttonDetails");
     dtBut.onclick = function (event) {
