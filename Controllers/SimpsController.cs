@@ -38,7 +38,7 @@ namespace CrudContactListMvc.Controllers
         }
 
         // GET: Contacts/ShowSearchForm
-        public async Task<IActionResult> Contact_ShowSearchForm()
+        public async Task<IActionResult> Contact_Search()
         {
             return PartialView();
         }
@@ -46,7 +46,7 @@ namespace CrudContactListMvc.Controllers
         // PoST: Contacts/ShowSearchResults
         public async Task<IActionResult> Contact_ShowSearchResults(String SearchPhrase)
         {
-            return PartialView("Index", await _context.Contact.Where(j => (j.Name.Contains(SearchPhrase) ||
+            return PartialView("Contact_Index", await _context.Contact.Where(j => (j.Name.Contains(SearchPhrase) ||
                                                                      j.Surname.Contains(SearchPhrase) ||
                                                                      j.Email.Contains(SearchPhrase) ||
                                                                      //j.BirthDate.Date.Equals(DateTime.Parse(SearchPhrase).Date) ||
