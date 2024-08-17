@@ -89,54 +89,167 @@
 
 </div>
 
-<script>
 
-    // update HTML elemendt by its id
-    function updateElement(id, data) {
-        console.log(data);
-        $(id).html(data)
-    }
+<!-- https://stackoverflow.com/questions/74607305/how-do-you-hide-a-div-element-based-on-user-input-on-a-razor-page -->
+@section scripts
+{
+    <script>
 
 
-    function getPartialViewAjax(path, data_in) {
-        $.ajax({
-            type: "POST",
-            url: path,
-            data: data_in,
-            success: function (response) {
-                console.log("data posted to the controller:");
-                console.log(data_in);
-                updateElement("#this_page", response);
-                // updateElement("#demo", response);
-            }
+
+
+
+
+
+
+        // NEW PART
+
+
+        // update HTML elemendt by its id
+        function updateElement(id, data) {
+            console.log(data);
+            $(id).html(data)
+        }
+
+
+        function getPartialViewAjax(path, data_in) {
+            $.ajax({
+                type: "POST",
+                url: path,
+                data: data_in,
+                success: function (response) {
+                    console.log("data posted to the controller:");
+                    console.log(data_in);
+                    updateElement("#this_page", response);
+                    // updateElement("#demo", response);
+                }
+            });
+        }
+
+
+
+
+        /*
+        var backBut = document.getElementById("#buttonGetContactIndex2");
+        backBut.onclick = function (event) {
+            event.preventDefault();
+            // data_in = $("#form_buttonGetContactIndex").serialize();
+            data_in = $("#form_buttonGetContactIndex").serialize();
+            getPartialViewAjax('Spas/ShowContactIndex', data_in);
+        };
+        */
+
+
+
+        $("#buttonGetContactIndex2").click(function (event) {
+            event.preventDefault();
+            // data_in = $("#form_buttonGetContactIndex").serialize();
+            data_in = $("#form_buttonGetContactIndex").serialize();
+            getPartialViewAjax('Spas/ShowContactIndex', data_in);
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function Select() {
+            //get the element by id
+            var select = document.getElementById("CategoryId");
+            var selectSubcat = document.getElementById("SubcategoryId");
+            //get the option's text
+            var index = select.selectedIndex;
+            var text = select.options[index].text;
+            // Business has id 1 in the database
+            // get from controller through
+            var categoryName = "@ViewBag.DropDownCategory";
+            //if option's text is not Business, hide the second dropdownlist.
+            // if (text != "Business") {
+            if (text != categoryName) {
+                //hiden the dropdownlist
+                document.getElementById("hiddenSubcategory").style.display = 'none';
+
+                // Setting null value at SelectList
+                var nullVal = "";
+                var findedNullOption = selectSubcat.querySelector(`option[value="${nullVal}"]`);
+                if (findedNullOption == null) {
+                    var newOption = new Option('', '');
+                    selectSubcat.add(newOption);
+                    selectSubcat.value = '';
+                }
+
+            } else {
+                //show the dropdownlist
+                document.getElementById("hiddenSubcategory").style.display = 'block';
+
+
+                // Log all option values
+                // var selectSubcat = document.getElementById("SubcategoryId");
+                // console.log('Current options:');
+                // for (let option of selectSubcat.options) {
+                //     console.log(option.value);
+                // }
+
+
+                // Removing null value at SelectList
+                var valueToRemove = "";
+                var optionToRemove = selectSubcat.querySelector(`option[value="${valueToRemove}"]`);
+                if (optionToRemove) {
+                    optionToRemove.remove();
+                }
+                // Set the first remaining element as the active value
+                if (selectSubcat.options.length > 0) {
+                    selectSubcat.selectedIndex = 0;
+                }
+
+
+            }
+
+
+            var otherCategoryName = "@ViewBag.otherCategoryName";
+            if (text == otherCategoryName) {
+                document.getElementById("NewCategoryDiv").style.display = 'block';
+            }
+            else {
+                document.getElementById("NewCategoryDiv").style.display = 'none';
+            }
+
+        }
+
+
+        function CheckEmail() {
+            var emailInput = document.getElementById("emailInput");
+            var emails = @Html.Raw(Json.Serialize(ViewBag.emails));
+            if (emails.includes(emailInput.value)) {
+                emailInput.value = "This email is already in the Database."
+            }
+
+        }
+
+
+
+    </script>
+
+
+    <!-- DEfault View block element -->
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
-
-
-
-    /*
-    var backBut = document.getElementById("#buttonGetContactIndex2");
-    backBut.onclick = function (event) {
-        event.preventDefault();
-        // data_in = $("#form_buttonGetContactIndex").serialize();
-        data_in = $("#form_buttonGetContactIndex").serialize();
-        getPartialViewAjax('Spas/ShowContactIndex', data_in);
-    };
-    */
-    
-
-    
-    $("#buttonGetContactIndex2").click(function (event) {
-        event.preventDefault();
-        // data_in = $("#form_buttonGetContactIndex").serialize();
-        data_in = $("#form_buttonGetContactIndex").serialize();
-        getPartialViewAjax('Spas/ShowContactIndex', data_in);
-    });
-    
-
-
-
-
-</script>
+}
 
