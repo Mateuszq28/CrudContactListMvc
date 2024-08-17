@@ -122,20 +122,20 @@ $(function () {
 
 
     // Contact Index, Block 1
-    ajaxWrapper(id_button_submit = "Contact_getIndex",
-                id_collecting_form = "Contact_form_getIndex",
+    ajaxWrapper(id_button_submit = "#Contact_getIndex",
+                id_collecting_form = "#Contact_form_getIndex",
                 url_server = "Simps/Contact_Index",
-                id_put_response = "Contact_getIndex_content"
+                id_put_response = "#Contact_getIndex_content"
                 );
 
 
     // SPA (old)
     // Single Page Application - matryoshka
     // Contact Index, Block 1
-    ajaxWrapper(id_button_submit = "buttonGetContactIndex",
-                id_collecting_form = "form",
+    ajaxWrapper(id_button_submit = "#buttonGetContactIndex",
+                id_collecting_form = "#form",
                 url_server = "Spas/ShowContactIndex",
-                id_put_response = "contactIndexContent"
+                id_put_response = "#contactIndexContent"
                 );
 
 
