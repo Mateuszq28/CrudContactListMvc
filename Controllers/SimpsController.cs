@@ -31,20 +31,20 @@ namespace CrudContactListMvc.Controllers
         // ===================================
 
         // GET: Contacts
-        public async Task<IActionResult> Contact_Index()
+        public async Task<IActionResult> Contact_Index(IFormCollection form)
         {
             var applicationDbContext = _context.Contact.Include(c => c.Category).Include(c => c.Subcategory);
             return PartialView(await applicationDbContext.ToListAsync());
         }
 
         // GET: Contacts/ShowSearchForm
-        public async Task<IActionResult> Contact_Search()
+        public async Task<IActionResult> Contact_Search(IFormCollection form)
         {
             return PartialView();
         }
 
         // PoST: Contacts/ShowSearchResults
-        public async Task<IActionResult> Contact_ShowSearchResults(String SearchPhrase)
+        public async Task<IActionResult> Contact_SearchShowResults(String SearchPhrase)
         {
             return PartialView("Contact_Index", await _context.Contact.Where(j => (j.Name.Contains(SearchPhrase) ||
                                                                      j.Surname.Contains(SearchPhrase) ||
@@ -76,7 +76,7 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Contacts/Create
         [Authorize]
-        public IActionResult Contact_Create()
+        public IActionResult Contact_Create(IFormCollection form)
         {
             // string for condition to show drop-down subcategory menu
             Category expectedCategory = _context.Category.Where(m => m.Id == 1).First();
@@ -142,7 +142,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Contact_Create(IFormCollection form)
+        public async Task<IActionResult> Contact_CreateAddRecord(IFormCollection form)
         {
             string newSubcatName = form["NewCategory"];
 
@@ -221,7 +221,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Contact_Edit(int id, [Bind("Id,Email,Name,Surname,Password,Phone,BirthDate,CategoryId,SubcategoryId")] Contact contact)
+        public async Task<IActionResult> Contact_EditApply(int id, [Bind("Id,Email,Name,Surname,Password,Phone,BirthDate,CategoryId,SubcategoryId")] Contact contact)
         {
             if (id != contact.Id)
             {
@@ -302,7 +302,7 @@ namespace CrudContactListMvc.Controllers
         // ======================================
 
         // GET: Categories
-        public async Task<IActionResult> Category_Index()
+        public async Task<IActionResult> Category_Index(IFormCollection form)
         {
             return PartialView(await _context.Category.ToListAsync());
         }
@@ -335,7 +335,7 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Categories/Create
         [Authorize]
-        public IActionResult Category_Create()
+        public IActionResult Category_Create(IFormCollection form)
         {
             return PartialView();
         }
@@ -346,7 +346,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Category category)
+        public async Task<IActionResult> Category_CreateAddRecord([Bind("Id,Name")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -380,7 +380,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Category_Edit(int id, [Bind("Id,Name")] Category category)
+        public async Task<IActionResult> Category_EditApply(int id, [Bind("Id,Name")] Category category)
         {
             if (id != category.Id)
             {
@@ -457,7 +457,7 @@ namespace CrudContactListMvc.Controllers
         // =========================================
 
         // GET: Subcategories
-        public async Task<IActionResult> Subcategory_Index()
+        public async Task<IActionResult> Subcategory_Index(IFormCollection form)
         {
             var applicationDbContext = _context.Subcategory.Include(s => s.Category);
             return PartialView(await applicationDbContext.ToListAsync());
@@ -485,7 +485,7 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Subcategories/Create
         [Authorize]
-        public IActionResult Subcategory_Create()
+        public IActionResult Subcategory_Create(IFormCollection form)
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return PartialView();
@@ -497,7 +497,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("Id,Name,CategoryId")] Subcategory subcategory)
+        public async Task<IActionResult> Subcategory_CreateAddRecord([Bind("Id,Name,CategoryId")] Subcategory subcategory)
         {
             //subcategory.Category = await _context.Category.Where(m => m.Id == subcategory.CategoryId).FirstOrDefaultAsync();
             if (ModelState.IsValid)
@@ -534,7 +534,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Subcategory_Edit(int id, [Bind("Id,Name,CategoryId")] Subcategory subcategory)
+        public async Task<IActionResult> Subcategory_EditApply(int id, [Bind("Id,Name,CategoryId")] Subcategory subcategory)
         {
             if (id != subcategory.Id)
             {
