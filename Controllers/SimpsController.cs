@@ -16,31 +16,35 @@ namespace CrudContactListMvc.Controllers
             _context = context;
         }
 
+
+
         // GET: MAIN PAGE
         public IActionResult Index()
         {
             return View();
         }
 
-        // =====================================
+
+
+        // ===================================
         // BLOCK FOR INTERACTIONS WITH CONTACT
-        // =====================================
+        // ===================================
 
         // GET: Contacts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Contact_Index()
         {
             var applicationDbContext = _context.Contact.Include(c => c.Category).Include(c => c.Subcategory);
             return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Contacts/ShowSearchForm
-        public async Task<IActionResult> ShowSearchForm()
+        public async Task<IActionResult> Contact_ShowSearchForm()
         {
             return View();
         }
 
         // PoST: Contacts/ShowSearchResults
-        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        public async Task<IActionResult> Contact_ShowSearchResults(String SearchPhrase)
         {
             return View("Index", await _context.Contact.Where(j => (j.Name.Contains(SearchPhrase) ||
                                                                      j.Surname.Contains(SearchPhrase) ||
@@ -51,7 +55,7 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Contacts/Details/5
         [Authorize]
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Contact_Details(int? id)
         {
             if (id == null)
             {
@@ -72,7 +76,7 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Contacts/Create
         [Authorize]
-        public IActionResult Create()
+        public IActionResult Contact_Create()
         {
             // string for condition to show drop-down subcategory menu
             Category expectedCategory = _context.Category.Where(m => m.Id == 1).First();
@@ -138,7 +142,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create(IFormCollection form)
+        public async Task<IActionResult> Contact_Create(IFormCollection form)
         {
             string newSubcatName = form["NewCategory"];
 
@@ -194,7 +198,7 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Contacts/Edit/5
         [Authorize]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Contact_Edit(int? id)
         {
             if (id == null)
             {
@@ -217,7 +221,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Email,Name,Surname,Password,Phone,BirthDate,CategoryId,SubcategoryId")] Contact contact)
+        public async Task<IActionResult> Contact_Edit(int id, [Bind("Id,Email,Name,Surname,Password,Phone,BirthDate,CategoryId,SubcategoryId")] Contact contact)
         {
             if (id != contact.Id)
             {
@@ -233,7 +237,7 @@ namespace CrudContactListMvc.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ContactExists(contact.Id))
+                    if (!Contact_ContactExists(contact.Id))
                     {
                         return NotFound();
                     }
@@ -251,7 +255,7 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Contacts/Delete/5
         [Authorize]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Contact_Delete(int? id)
         {
             if (id == null)
             {
@@ -274,7 +278,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Contact_DeleteConfirmed(int id)
         {
             var contact = await _context.Contact.FindAsync(id);
             if (contact != null)
@@ -286,9 +290,339 @@ namespace CrudContactListMvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ContactExists(int id)
+        private bool Contact_ContactExists(int id)
         {
             return _context.Contact.Any(e => e.Id == id);
         }
+
+
+
+        // ======================================
+        // BLOCK FOR INTERACTIONS WITH CATEGORIES
+        // ======================================
+
+        // GET: Categories
+        public async Task<IActionResult> Category_Index()
+        {
+            return View(await _context.Category.ToListAsync());
+        }
+
+        // GET: Categories/Details/5
+        [Authorize]
+        public async Task<IActionResult> Category_Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var category = await _context.Category
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            // Put all correlated subcategories pointers into category
+            // List is empty at the start (data is only in the database)
+            category.Subcategory = null;
+            ICollection<Subcategory> findedSubcategories = await _context.Subcategory
+                .Where(m => m.CategoryId == id).ToListAsync();
+            category.Subcategory = findedSubcategories;
+
+            return View(category);
+        }
+
+        // GET: Categories/Create
+        [Authorize]
+        public IActionResult Category_Create()
+        {
+            return View();
+        }
+
+        // POST: Categories/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Create([Bind("Id,Name")] Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(category);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(category);
+        }
+
+        // GET: Categories/Edit/5
+        [Authorize]
+        public async Task<IActionResult> Category_Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var category = await _context.Category.FindAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View(category);
+        }
+
+        // POST: Categories/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Category_Edit(int id, [Bind("Id,Name")] Category category)
+        {
+            if (id != category.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(category);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!Category_CategoryExists(category.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(category);
+        }
+
+        // GET: Categories/Delete/5
+        [Authorize]
+        public async Task<IActionResult> Category_Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var category = await _context.Category
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
+        }
+
+        // POST: Categories/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Category_DeleteConfirmed(int id)
+        {
+            var category = await _context.Category.FindAsync(id);
+            if (category != null)
+            {
+                _context.Category.Remove(category);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool Category_CategoryExists(int id)
+        {
+            return _context.Category.Any(e => e.Id == id);
+        }
+
+
+
+        // =========================================
+        // BLOCK FOR INTERACTIONS WITH SUBCATEGORIES
+        // =========================================
+
+        // GET: Subcategories
+        public async Task<IActionResult> Subcategory_Index()
+        {
+            var applicationDbContext = _context.Subcategory.Include(s => s.Category);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        // GET: Subcategories/Details/5
+        [Authorize]
+        public async Task<IActionResult> Subcategory_Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var subcategory = await _context.Subcategory
+                .Include(s => s.Category)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (subcategory == null)
+            {
+                return NotFound();
+            }
+
+            return View(subcategory);
+        }
+
+        // GET: Subcategories/Create
+        [Authorize]
+        public IActionResult Subcategory_Create()
+        {
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
+            return View();
+        }
+
+        // POST: Subcategories/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Create([Bind("Id,Name,CategoryId")] Subcategory subcategory)
+        {
+            //subcategory.Category = await _context.Category.Where(m => m.Id == subcategory.CategoryId).FirstOrDefaultAsync();
+            if (ModelState.IsValid)
+            {
+                _context.Add(subcategory);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", subcategory.CategoryId);
+            return View(subcategory);
+        }
+
+        // GET: Subcategories/Edit/5
+        [Authorize]
+        public async Task<IActionResult> Subcategory_Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var subcategory = await _context.Subcategory.FindAsync(id);
+            if (subcategory == null)
+            {
+                return NotFound();
+            }
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", subcategory.CategoryId);
+            return View(subcategory);
+        }
+
+        // POST: Subcategories/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Subcategory_Edit(int id, [Bind("Id,Name,CategoryId")] Subcategory subcategory)
+        {
+            if (id != subcategory.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(subcategory);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!Subcategory_SubcategoryExists(subcategory.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", subcategory.CategoryId);
+            return View(subcategory);
+        }
+
+        // GET: Subcategories/Delete/5
+        [Authorize]
+        public async Task<IActionResult> Subcategory_Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var subcategory = await _context.Subcategory
+                .Include(s => s.Category)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (subcategory == null)
+            {
+                return NotFound();
+            }
+
+            return View(subcategory);
+        }
+
+        // POST: Subcategories/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Subcategory_DeleteConfirmed(int id)
+        {
+            var subcategory = await _context.Subcategory.FindAsync(id);
+            if (subcategory != null)
+            {
+                _context.Subcategory.Remove(subcategory);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool Subcategory_SubcategoryExists(int id)
+        {
+            return _context.Subcategory.Any(e => e.Id == id);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

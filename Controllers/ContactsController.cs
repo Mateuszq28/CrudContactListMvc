@@ -28,7 +28,7 @@ namespace CrudContactListMvc.Controllers
         }
 
         // GET: Contacts/ShowSearchForm
-        public async Task<IActionResult> ShowSearchForm()
+        public IActionResult ShowSearchForm()
         {
             return View();
         }
