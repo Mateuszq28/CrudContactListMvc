@@ -1,23 +1,194 @@
 ﻿@model IEnumerable<CrudContactListMvc.Models.Simp>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+	.space-grotesk-regular {
+		font-family: "Space Grotesk", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	* {
+		font-family: space-grotesk-regular;
+	}
+
+	.list {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		grid-template-rows: repeat(2, 1fr);
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		place-content: center;
+	}
+
+	.spa-class-box {
+		background-color: #D6D9CC;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
+		border: solid #0D0D0D 2px;
+		border-radius: 25px;
+		width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		height: 1000px;
+	}
+	
+	.spa-view-button {
+		padding: 20px;
+		background-color: #6F7356;
+	}
+	
+	.spa-view-button button {
+		background-color: #BF3604;
+	}
+	
+	.spa-view-content {
+		background-color: #D99982;
+		height: 800px;
+	}
+
+</style>
+
+<body>
+	<h1>Single Page Application</h1>
+	<p>Current time: @DateTime.Now</p>
+
+	<!-- ==================== -->
+	<!-- CONTACT INTERACTIONS -->
+	<!-- Grid 2x2 -->
+	<!-- ==================== -->
+	<div class="list">
+
+		<!-- Block 1 -->
+		<div class="spa-class-box">
+			<h2>Contacts Index</h2>
+			<div class="spa-view-button">
+				<form asp-action="ShowContactIndex" asp-controller="Spas">
+					<button id="buttonGetContactIndex"
+							name="buttonGetContactIndex"
+							type="submit"
+							value="butPressed">Get Contact Index</button>
+				</form>
+			</div>
+			<div class="spa-view-content" id="contactIndexContent">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+		<!-- Block 2 -->
+		<div class="spa-class-box">
+			<h2>Contacts Index</h2>
+			<div class="spa-view-button">
+				<form asp-action="ShowContactIndex" asp-controller="Spas">
+					<button id="buttonGetContactIndex"
+							name="buttonGetContactIndex"
+							type="submit"
+							value="butPressed">Get Contact Index</button>
+				</form>
+			</div>
+			<div class="spa-view-content" id="contactIndexContent">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+		<!-- Block 3 -->
+		<div class="spa-class-box">
+			<h2>Contacts Index</h2>
+			<div class="spa-view-button">
+				<form asp-action="ShowContactIndex" asp-controller="Spas">
+					<button id="buttonGetContactIndex"
+							name="buttonGetContactIndex"
+							type="submit"
+							value="butPressed">Get Contact Index</button>
+				</form>
+			</div>
+			<div class="spa-view-content" id="contactIndexContent">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+		<!-- Block 4 -->
+		<div class="spa-class-box">
+			<h2>Contacts Index</h2>
+			<div class="spa-view-button">
+				<form asp-action="ShowContactIndex" asp-controller="Spas">
+					<button id="buttonGetContactIndex"
+							name="buttonGetContactIndex"
+							type="submit"
+							value="butPressed">Get Contact Index</button>
+				</form>
+			</div>
+			<div class="spa-view-content" id="contactIndexContent">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--
+
+	<div class="spa-class-box">
+		<h2>Contacts</h2>
+		<div class="spa-view-button">
+			<button>Get Contact Index</button>
+		</div>
+		<div class="spa-view-content">
+			<p>After button click, here will be loaded content.</p>
+		</div>
+	</div>
+
+	-->
+
+
+</body>
+
+
+
+<!-- Java Script -->
+<!-- Java Script in wwwroot/js/site.js -->
+<!--
+<script>
+	
+</script>
+-->
