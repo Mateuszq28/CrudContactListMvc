@@ -21,7 +21,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Spas" asp-action="Create">
+        <form id="form_crButsummit" asp-controller="Spas" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
@@ -66,7 +66,7 @@
                 <input id="NewCategory" name="NewCategory" class="form-control" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input id="crButsummit" type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -147,6 +147,27 @@
             data_in = $("#form_buttonGetContactIndex").serialize();
             getPartialViewAjax('Spas/ShowContactIndex', data_in);
         });
+
+
+
+
+
+        /*
+        $("#crButsummit").click(function (event) {
+            event.preventDefault();
+            data_in = $("#form_crButsummit").serialize();
+            getPartialViewAjax('Spas/CreateReturn', data_in);
+        });
+        */
+
+
+
+        var crButsummit = document.getElementById("#crButsummit");
+        crButsummit.onclick = function (event) {
+            event.preventDefault();
+            data_in = $("#form_crButsummit").serialize();
+            getPartialViewAjax('Spas/CreateReturn', data_in);
+        };
 
 
 
