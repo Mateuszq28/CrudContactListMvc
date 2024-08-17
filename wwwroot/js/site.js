@@ -77,7 +77,7 @@ $(function () {
                          id_collecting_form,
                          url_server,
                          id_put_response
-    ); {
+    ) {
         // Annotation to this line:
         // $(id_button_submit).click(function (event) {
         // to work with <a> tags disable all $("a"),
@@ -127,7 +127,7 @@ $(function () {
                 url_server = "Simps/Contact_Index",
                 id_put_response = "Contact_getIndex_content"
                 );
-                
+
 
     // SPA (old)
     // Single Page Application - matryoshka
