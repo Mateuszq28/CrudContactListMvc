@@ -90,9 +90,7 @@
 </div>
 
 
-<!-- https://stackoverflow.com/questions/74607305/how-do-you-hide-a-div-element-based-on-user-input-on-a-razor-page -->
-@section scripts
-{
+
     <script>
 
 
@@ -152,23 +150,24 @@
 
 
 
-        /*
+        
         $("#crButsummit").click(function (event) {
             event.preventDefault();
             data_in = $("#form_crButsummit").serialize();
             getPartialViewAjax('Spas/CreateReturn', data_in);
         });
-        */
+        
 
 
 
+       /*
         var crButsummit = document.getElementById("#crButsummit");
         crButsummit.onclick = function (event) {
             event.preventDefault();
             data_in = $("#form_crButsummit").serialize();
             getPartialViewAjax('Spas/CreateReturn', data_in);
         };
-
+        */
 
 
 
@@ -268,9 +267,5 @@
     </script>
 
 
-    <!-- DEfault View block element -->
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
+
 
