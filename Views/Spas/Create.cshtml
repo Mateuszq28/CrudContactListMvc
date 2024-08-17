@@ -125,6 +125,21 @@
         }
 
 
+        function postPartialViewAjax(path, data_in) {
+            $.ajax({
+                type: "GET",
+                url: path,
+                data: data_in,
+                success: function (response) {
+                    console.log("data posted to the controller:");
+                    console.log(data_in);
+                    updateElement("#this_page", response);
+                    // updateElement("#demo", response);
+                }
+            });
+        }
+
+
 
 
         /*
