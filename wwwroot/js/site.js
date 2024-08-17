@@ -7,22 +7,47 @@ $(function () {
     console.log("Page is ready");
 
 
+    // update HTML elemendt by its id
+    function updateElement(id, data) {
+        console.log(data);
+        $(id).html(data)
+    }
 
-    $("#buttonGetContactIndex").click(function () {
-        event.preventDefault();
-        console.log("select button was clicked");
 
-
+    function getPartialViewAjax(path, data_in) {
         $.ajax({
             type: "POST",
-            url: 'Spas/ShowContactIndex',
-            data: $("form").serialize(),
-            success: function (data) {
-                console.log(data);
-                $("#contactIndexContent").html(data)
+            url: path,
+            data: data_in,
+            success: function (response) {
+                console.log("data posted to the controller:");
+                console.log(data_in);
+                updateElement("#contactIndexContent", response);
+                searchNewButtons();
             }
         });
+    }
 
-    })
+
+    // read site html again and set functions on new #id elements
+    function searchNewButtons() {
+
+        // CONTACT INDEX MAIN PAGE
+        // to work with <a> tags disable all $("a"),
+        // just #id doesn't work
+        $("#buttonGetContactIndex").click(function (event) {
+            event.preventDefault();
+            console.log("select button was clicked");
+            data_in = $("form");
+            console.log("data posted to the controller (RAW):");
+            console.log(data_in);
+            data_in = data_in.serialize();
+            getPartialViewAjax('Spas/ShowContactIndex', data_in);
+        });
+
+    }
+
+
+    searchNewButtons();
 
 });
