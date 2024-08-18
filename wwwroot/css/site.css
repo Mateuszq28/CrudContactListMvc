@@ -24,3 +24,7 @@ body {
 .col-md-4 {
     width: 80%;
 }
+
+.form-group:has(> .btn.btn-primary) {
+  margin-top: 20px;
+}
