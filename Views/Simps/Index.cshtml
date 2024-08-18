@@ -54,6 +54,27 @@
 		height: 800px;
 	}
 
+
+	
+
+	.spa-class-box-x2 {
+		background-color: #D6D9CC;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		text-align: center;
+		border: solid #0D0D0D 2px;
+		border-radius: 25px;
+		width: 910px;
+		margin-left: auto;
+		margin-right: auto;
+		height: 1000px;
+	}
+
+	.spa-view-content-x2 {
+		background-color: #D99982;
+		height: 800px;
+	}
+
 </style>
 
 <body>
@@ -62,47 +83,32 @@
 
 	<!-- ==================== -->
 	<!-- CONTACT INTERACTIONS -->
+	<!-- 1 wide block -->
 	<!-- Grid 2x2 -->
+	<!-- 1 wide block -->
 	<!-- ==================== -->
+
+	<!-- Block 1 -->
+	<div class="spa-class-box-x2">
+		<h2>Contacts Index</h2>
+		<div class="spa-view-button">
+			<form id="Contact_form_getIndex" asp-action="Contact_Index" asp-controller="Simps">
+				<button id="Contact_getIndex"
+						name="Contact_getIndex"
+						type="submit"
+						value="Contact_getIndex">
+					Get Contact Index
+				</button>
+			</form>
+		</div>
+		<div class="spa-view-content-x2" id="Contact_getIndex_content">
+			<p>After button click, here will be loaded content.</p>
+		</div>
+	</div>
+
 	<div class="list">
 
-		<!-- Block 1 -->
-		<div class="spa-class-box">
-			<h2>Contacts Index</h2>
-			<div class="spa-view-button">
-				<form id="Contact_form_getIndex" asp-action="Contact_Index" asp-controller="Simps">
-					<button id="Contact_getIndex"
-							name="Contact_getIndex"
-							type="submit"
-							value="Contact_getIndex">
-						Get Contact Index
-					</button>
-				</form>
-			</div>
-			<div class="spa-view-content" id="Contact_getIndex_content">
-				<p>After button click, here will be loaded content.</p>
-			</div>
-		</div>
-
 		<!-- Block 2 -->
-		<div class="spa-class-box">
-			<h2>Contacts Details</h2>
-			<div class="spa-view-button">
-				<form id="Contact_form_getDetails" asp-action="Contact_Details" asp-controller="Simps">
-					<button id="Contact_getDetails"
-							name="Contact_getDetails"
-							type="submit"
-							value="Contact_getDetails">
-						Get Contact Details
-					</button>
-				</form>
-			</div>
-			<div class="spa-view-content" id="Contact_getDetails_content">
-				<p>After button click, here will be loaded content.</p>
-			</div>
-		</div>
-
-		<!-- Block 3 -->
 		<div class="spa-class-box">
 			<h2>Contacts Create</h2>
 			<div class="spa-view-button">
@@ -116,6 +122,24 @@
 				</form>
 			</div>
 			<div class="spa-view-content" id="Contact_getCreate_content">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+		<!-- Block 3 -->
+		<div class="spa-class-box">
+			<h2>Contacts Details</h2>
+			<div class="spa-view-button">
+				<form id="Contact_form_getDetails" asp-action="Contact_Details" asp-controller="Simps">
+					<button id="Contact_getDetails"
+							name="Contact_getDetails"
+							type="submit"
+							value="Contact_getDetails">
+						Get Contact Details
+					</button>
+				</form>
+			</div>
+			<div class="spa-view-content" id="Contact_getDetails_content">
 				<p>After button click, here will be loaded content.</p>
 			</div>
 		</div>
@@ -138,11 +162,29 @@
 			</div>
 		</div>
 
+		<!-- Block 5 -->
+		<div class="spa-class-box">
+			<h2>Contacts Delete</h2>
+			<div class="spa-view-button">
+				<form id="Contact_form_getDelete" asp-action="Contact_Delete" asp-controller="Simps">
+					<button id="Contact_getDelete"
+							name="Contact_getDelete"
+							type="submit"
+							value="Contact_getDelete">
+						Get Contact Delete
+					</button>
+				</form>
+			</div>
+			<div class="spa-view-content" id="Contact_getDelete_content">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
 	</div>
 
 	<!-- Double width block - search -->
-	<!-- Block 5 -->
-	<div class="spa-class-box" style="width: 800px; height: 500px;">
+	<!-- Block 6 -->
+	<div class="spa-class-box-x2">
 		<h2>Contacts Search</h2>
 		<div class="spa-view-button">
 			<form id="Contact_form_getSearch" asp-action="Contact_Search" asp-controller="Simps">
@@ -154,7 +196,7 @@
 				</button>
 			</form>
 		</div>
-		<div class="spa-view-content" id="Contact_getSearch_content" style="height: 300px;">
+		<div class="spa-view-content-x2" id="Contact_getSearch_content">
 			<p>After button click, here will be loaded content.</p>
 		</div>
 	</div>
