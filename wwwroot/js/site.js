@@ -121,6 +121,9 @@ $(function () {
     // ==========================
 
 
+    // MAIN PAGE (Simps/Index)
+
+
     // Contact Index, Block 1
     ajaxWrapper(id_button_submit = "#Contact_getIndex",
                 id_collecting_form = "#Contact_form_getIndex",
@@ -138,6 +141,17 @@ $(function () {
                 id_put_response = "#contactIndexContent"
                 );
 
+
+    // Simps/Contact_Index
+
+    
+    // Partial Contact Create
+    // #Contact_getCreate_content is in main page (Index)
+    ajaxWrapper(id_button_submit = "#Partial_Contact_getCreate",
+        id_collecting_form = "#Partial_Contact_form_getCreate",
+        url_server = "Simps/Contact_Create",
+        id_put_response = "#Contact_getCreate_content"
+        );
 
 
 });
