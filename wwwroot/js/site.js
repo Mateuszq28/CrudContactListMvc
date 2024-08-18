@@ -133,6 +133,15 @@ $(function () {
     Arr_Contact_Create_ids = ["#Contact_Multiblock_getIndex_content",
                              "#Contact_getCreate_content"
                             ];
+    Arr_Contact_Edit_ids = ["#Contact_Multiblock_getIndex_content",
+                             "#Contact_getEdit_content"
+                            ];
+    Arr_Contact_Details_ids = ["#Contact_Multiblock_getIndex_content",
+                             "#Contact_getDetails_content"
+                            ];
+    Arr_Contact_Delete_ids = ["#Contact_Multiblock_getIndex_content",
+                             "#Contact_getDelete_content"
+                            ];
 
 
     // SPA (old)
@@ -194,12 +203,37 @@ $(function () {
     // +++++++++++++++++++
 
     
-    // Partial Contact Create
-    // #Contact_getCreate_content is in main page (Index)
+    // Partial Contact Index
+    // (in Arr...): #Contact_getCreate_content is in main page (Index)
+    // Create
     ajaxWrapper(id_button_submit = "#Partial_Contact_getCreate",
         id_collecting_form = "#Partial_Contact_form_getCreate",
         url_server = "Simps/Contact_Create",
         arr_id_put_response = Arr_Contact_Create_ids
+        );
+
+    
+    // Edit
+    ajaxWrapper(id_button_submit = "#Partial_Contact_getEdit",
+        id_collecting_form = "#Partial_Contact_form_getEdit",
+        url_server = "Simps/Contact_Edit",
+        arr_id_put_response = Arr_Contact_Edit_ids
+        );
+
+    
+    // Details
+    ajaxWrapper(id_button_submit = "#Partial_Contact_getDetails",
+        id_collecting_form = "#Partial_Contact_form_getDetails",
+        url_server = "Simps/Contact_Details",
+        arr_id_put_response = Arr_Contact_Details_ids
+        );
+
+    
+    // Delete
+    ajaxWrapper(id_button_submit = "#Partial_Contact_getDelete",
+        id_collecting_form = "#Partial_Contact_form_getDelete",
+        url_server = "Simps/Contact_Delete",
+        arr_id_put_response = Arr_Contact_Delete_ids
         );
 
 
