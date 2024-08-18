@@ -172,12 +172,7 @@ $(function () {
     // Contact Details, Block 3 - only from Contact Index
 
 
-    // Contact Edit, Block 4
-    ajaxWrapper(id_button_submit = "#Contact_getEdit",
-                id_collecting_form = "#Contact_form_getEdit",
-                url_server = "Simps/Contact_Edit",
-                arr_id_put_response = ["#Contact_getEdit_content"]
-                );
+    // Contact Edit, Block 4 - only from Contact Index
 
 
     // Contact Delete, Block 5 - only from Contact Index
