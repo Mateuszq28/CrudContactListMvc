@@ -7,7 +7,14 @@
 <h1>Contacts</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <form id="Partial_Contact_form_getCreate" asp-action="Contact_Create" asp-controller="Simps">
+        <button id="Partial_Contact_getCreate"
+                name="Partial_Contact_getCreate"
+                type="submit"
+                value="Partial_Contact_getCreate">
+            Create New
+        </button>
+    </form>
 </p>
 <table class="table">
     <thead>
