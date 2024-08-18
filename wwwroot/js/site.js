@@ -39,7 +39,7 @@ $(function () {
     // CATCH response with AJAX
     // AJAX <-- GET from server
     // AJAX --> response
-    function getPartialViewAjax(url, data_in, id_put_response) {
+    function getPartialViewAjax(url, data_in, arr_id_put_response) {
         $.ajax({
             type: "POST",
             url: url,
@@ -66,12 +66,12 @@ $(function () {
                 myLog(response);
                 // |                              |
                 // ------- block to delete --------
-                updateElement(id = id_put_response, data_to_put = response);
+                arr_id_put_response.forEach((id_put_response) => updateElement(id=id_put_response, data_to_put=response));
                 // ------- block to delete --------
                 // |                              |
                 myLog("--getPartialViewAjax--");
-                myLog("Element updated:");
-                myLog(id_put_response);
+                myLog("Elements updated:");
+                myLog(arr_id_put_response);
                 // |                              |
                 // ------- block to delete --------
             }
@@ -83,7 +83,7 @@ $(function () {
     function ajaxWrapper(id_button_submit,
                          id_collecting_form,
                          url_server,
-                         id_put_response
+                         arr_id_put_response
     ) {
         // Annotation to this line:
         // $(id_button_submit).click(function (event) {
@@ -103,7 +103,7 @@ $(function () {
             myLog(data_in_serialized);
             // |                              |
             // ------- block to delete --------
-            response = getPartialViewAjax(url_server, data_in_serialized, id_put_response);
+            getPartialViewAjax(url_server, data_in_serialized, arr_id_put_response);
             // ------- block to delete --------
             // |                              |
             myLog("--ajaxWrapper--");
@@ -132,7 +132,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#buttonGetContactIndex",
                 id_collecting_form = "#form",
                 url_server = "Spas/ShowContactIndex",
-                id_put_response = "#contactIndexContent"
+                arr_id_put_response = ["#contactIndexContent"]
                 );
 
 
@@ -143,7 +143,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Contact_getIndex",
                 id_collecting_form = "#Contact_form_getIndex",
                 url_server = "Simps/Contact_Index",
-                id_put_response = "#Contact_getIndex_content"
+                arr_id_put_response = ["#Contact_getIndex_content"]
                 );
 
 
@@ -151,7 +151,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Contact_getCreate",
                 id_collecting_form = "#Contact_form_getCreate",
                 url_server = "Simps/Contact_Create",
-                id_put_response = "#Contact_getCreate_content"
+                arr_id_put_response = ["#Contact_getCreate_content"]
                 );
 
 
@@ -162,7 +162,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Contact_getEdit",
                 id_collecting_form = "#Contact_form_getEdit",
                 url_server = "Simps/Contact_Edit",
-                id_put_response = "#Contact_getEdit_content"
+                arr_id_put_response = ["#Contact_getEdit_content"]
                 );
 
 
@@ -173,7 +173,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Contact_getSearch",
                 id_collecting_form = "#Contact_form_getSearch",
                 url_server = "Simps/Contact_Search",
-                id_put_response = "#Contact_getSearch_content"
+                arr_id_put_response = ["#Contact_getSearch_content"]
                 );
 
     
@@ -187,7 +187,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Partial_Contact_getCreate",
         id_collecting_form = "#Partial_Contact_form_getCreate",
         url_server = "Simps/Contact_Create",
-        id_put_response = "#Contact_getCreate_content"
+        arr_id_put_response = ["#Contact_getCreate_content"]
         );
 
 
