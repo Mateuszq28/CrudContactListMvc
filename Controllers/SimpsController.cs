@@ -55,12 +55,14 @@ namespace CrudContactListMvc.Controllers
 
         // GET: Contacts/Details/5
         [Authorize]
-        public async Task<IActionResult> Contact_Details(int? id)
+        public async Task<IActionResult> Contact_Details(IFormCollection form)
         {
-            if (id == null)
+            string? id_str = form["button"];
+            if (id_str == null)
             {
                 return NotFound();
             }
+            int id = int.Parse(id_str);
 
             var contact = await _context.Contact
                 .Include(c => c.Category)
