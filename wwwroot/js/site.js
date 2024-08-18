@@ -121,15 +121,9 @@ $(function () {
     // ==========================
 
 
+    // +++++++++++++++++++++++
     // MAIN PAGE (Simps/Index)
-
-
-    // Contact Index, Block 1
-    ajaxWrapper(id_button_submit = "#Contact_getIndex",
-                id_collecting_form = "#Contact_form_getIndex",
-                url_server = "Simps/Contact_Index",
-                id_put_response = "#Contact_getIndex_content"
-                );
+    // +++++++++++++++++++++++
 
 
     // SPA (old)
@@ -142,7 +136,50 @@ $(function () {
                 );
 
 
+    // MAINE PAGE (new)
+
+
+    // Contact Index, Block 1
+    ajaxWrapper(id_button_submit = "#Contact_getIndex",
+                id_collecting_form = "#Contact_form_getIndex",
+                url_server = "Simps/Contact_Index",
+                id_put_response = "#Contact_getIndex_content"
+                );
+
+
+    // Contact Create, Block 2
+    ajaxWrapper(id_button_submit = "#Contact_getCreate",
+                id_collecting_form = "#Contact_form_getCreate",
+                url_server = "Simps/Contact_Create",
+                id_put_response = "#Contact_getCreate_content"
+                );
+
+
+    // Contact Details, Block 3 - only from Contact Index
+
+
+    // Contact Edit, Block 4
+    ajaxWrapper(id_button_submit = "#Contact_getEdit",
+                id_collecting_form = "#Contact_form_getEdit",
+                url_server = "Simps/Contact_Edit",
+                id_put_response = "#Contact_getEdit_content"
+                );
+
+
+    // Contact Delete, Block 5 - only from Contact Index
+
+
+    // Contact Search, Block 6
+    ajaxWrapper(id_button_submit = "#Contact_getSearch",
+                id_collecting_form = "#Contact_form_getSearch",
+                url_server = "Simps/Contact_Search",
+                id_put_response = "#Contact_getSearch_content"
+                );
+
+    
+    // +++++++++++++++++++
     // Simps/Contact_Index
+    // +++++++++++++++++++
 
     
     // Partial Contact Create
