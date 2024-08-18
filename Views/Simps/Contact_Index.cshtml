@@ -10,6 +10,10 @@
         margin-right: auto;
         text-align: center;
     }
+
+    .buttons_inline {
+        display: inline;
+    }
 </style>
 
 <div class="all_center">
@@ -66,9 +70,45 @@
                 @Html.DisplayFor(modelItem => item.Subcategory.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <div class="buttons_inline">
+
+                    <form id="Partial_Contact_form_getEdit"
+                          asp-action="Contact_Edit"
+                          asp-controller="Simps"
+                          asp-route-id="@item.Id">
+                        <button id="Partial_Contact_getEdit"
+                                name="Partial_Contact_getEdit"
+                                type="submit"
+                                value="Partial_Contact_getEdit">
+                            Edit
+                        </button>
+                    </form> | 
+
+                    <form id="Partial_Contact_form_getDetails"
+                          asp-action="Contact_Details"
+                          asp-controller="Simps"
+                          asp-route-id="@item.Id">
+                        <button id="Partial_Contact_getDetails"
+                                name="Partial_Contact_getDetails"
+                                type="submit"
+                                value="Partial_Contact_getDetails">
+                            Details
+                        </button>
+                    </form> | 
+
+                    <form id="Partial_Contact_form_getDelete"
+                          asp-action="Contact_Delete"
+                          asp-controller="Simps"
+                          asp-route-id="@item.Id">
+                        <button id="Partial_Contact_getDelete"
+                                name="Partial_Contact_getDelete"
+                                type="submit"
+                                value="Partial_Contact_getDelete">
+                            Delete
+                        </button>
+                    </form>
+
+                </div>
             </td>
         </tr>
 }

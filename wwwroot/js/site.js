@@ -130,6 +130,9 @@ $(function () {
     Arr_Contact_Index_ids = ["#Contact_Multiblock_getIndex_content",
                              "#Contact_getIndex_content"
                             ];
+    Arr_Contact_Create_ids = ["#Contact_Multiblock_getIndex_content",
+                             "#Contact_getCreate_content"
+                            ];
 
 
     // SPA (old)
@@ -196,7 +199,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Partial_Contact_getCreate",
         id_collecting_form = "#Partial_Contact_form_getCreate",
         url_server = "Simps/Contact_Create",
-        arr_id_put_response = ["#Contact_getCreate_content"]
+        arr_id_put_response = Arr_Contact_Create_ids
         );
 
 
