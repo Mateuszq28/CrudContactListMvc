@@ -149,7 +149,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Contact_Multiblock_getIndex",
                 id_collecting_form = "#Contact_Multiblock_form_getIndex",
                 url_server = "Simps/Contact_Index",
-                arr_id_put_response = Arr_Contact_Index_ids
+                arr_id_put_response = ["#Contact_Multiblock_getIndex_content"]
                 );
 
 
@@ -157,7 +157,7 @@ $(function () {
     ajaxWrapper(id_button_submit = "#Contact_getIndex",
                 id_collecting_form = "#Contact_form_getIndex",
                 url_server = "Simps/Contact_Index",
-                arr_id_put_response = Arr_Contact_Index_ids
+                arr_id_put_response = ["#Contact_getIndex_content"]
                 );
 
 
