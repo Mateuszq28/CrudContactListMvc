@@ -67,8 +67,8 @@ $(function () {
                 // |                              |
                 // ------- block to delete --------
                 updateElement(id = id_put_response, data_to_put = response);
-                    // ------- block to delete --------
-                    // |                              |
+                // ------- block to delete --------
+                // |                              |
                 myLog("--getPartialViewAjax--");
                 myLog("Element updated:");
                 myLog(id_put_response);
@@ -104,7 +104,7 @@ $(function () {
             // |                              |
             // ------- block to delete --------
             response = getPartialViewAjax(url_server, data_in_serialized, id_put_response);
-                        // ------- block to delete --------
+            // ------- block to delete --------
             // |                              |
             myLog("--ajaxWrapper--");
             myLog("end of ajaxWrapper");
