@@ -128,7 +128,7 @@ $(function () {
 
     // UPDATE MANY PLACES AT ONCE
     Arr_Contact_Index_ids = ["#Contact_Multiblock_getIndex_content",
-                             "#contactIndexContent"
+                             "#Contact_getIndex_content"
                             ];
 
 
