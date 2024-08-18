@@ -74,36 +74,33 @@
 
                     <form id="Partial_Contact_form_getEdit"
                           asp-action="Contact_Edit"
-                          asp-controller="Simps"
-                          asp-route-id="@item.Id">
+                          asp-controller="Simps">
                         <button id="Partial_Contact_getEdit"
                                 name="Partial_Contact_getEdit"
                                 type="submit"
-                                value="Partial_Contact_getEdit">
+                                value="@item.Id">
                             Edit
                         </button>
                     </form> | 
 
                     <form id="Partial_Contact_form_getDetails"
                           asp-action="Contact_Details"
-                          asp-controller="Simps"
-                          asp-route-id="@item.Id">
+                          asp-controller="Simps">
                         <button id="Partial_Contact_getDetails"
                                 name="Partial_Contact_getDetails"
                                 type="submit"
-                                value="Partial_Contact_getDetails">
+                                value="@item.Id">
                             Details
                         </button>
                     </form> | 
 
                     <form id="Partial_Contact_form_getDelete"
                           asp-action="Contact_Delete"
-                          asp-controller="Simps"
-                          asp-route-id="@item.Id">
+                          asp-controller="Simps">
                         <button id="Partial_Contact_getDelete"
                                 name="Partial_Contact_getDelete"
                                 type="submit"
-                                value="Partial_Contact_getDelete">
+                                value="@item.Id">
                             Delete
                         </button>
                     </form>
