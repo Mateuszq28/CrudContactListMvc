@@ -126,6 +126,12 @@ $(function () {
     // +++++++++++++++++++++++
 
 
+    // UPDATE MANY PLACES AT ONCE
+    Arr_Contact_Index_ids = ["#Contact_Multiblock_getIndex_content",
+                             "#contactIndexContent"
+                            ];
+
+
     // SPA (old)
     // Single Page Application - matryoshka
     // Contact Index, Block 1
@@ -139,11 +145,19 @@ $(function () {
     // MAINE PAGE (new)
 
 
+    // Contact Index, Multiblock
+    ajaxWrapper(id_button_submit = "#Contact_Multiblock_getIndex",
+                id_collecting_form = "#Contact_Multiblock_form_getIndex",
+                url_server = "Simps/Contact_Index",
+                arr_id_put_response = Arr_Contact_Index_ids
+                );
+
+
     // Contact Index, Block 1
     ajaxWrapper(id_button_submit = "#Contact_getIndex",
                 id_collecting_form = "#Contact_form_getIndex",
                 url_server = "Simps/Contact_Index",
-                arr_id_put_response = ["#Contact_getIndex_content"]
+                arr_id_put_response = Arr_Contact_Index_ids
                 );
 
 
