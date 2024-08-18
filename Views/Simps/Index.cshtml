@@ -37,7 +37,7 @@
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
-		height: 1000px;
+		height: 1030px;
 	}
 	
 	.spa-view-button {
@@ -51,7 +51,7 @@
 	
 	.spa-view-content {
 		background-color: #D99982;
-		height: 800px;
+		height: 830px;
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
@@ -61,25 +61,13 @@
 	
 
 	.spa-class-box-x2 {
-		background-color: #D6D9CC;
-		margin-top: 30px;
-		margin-bottom: 30px;
-		border: solid #0D0D0D 2px;
-		border-radius: 25px;
 		width: 910px;
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-		height: 1000px;
+		/* height: 1000px; */
 	}
 
-	.spa-view-content-x2 {
-		background-color: #D99982;
+	/* .spa-view-content-x2 {
 		height: 800px;
-		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-	}
+	} */
 
 </style>
 
@@ -88,7 +76,7 @@
 	<p>Current time: @DateTime.Now</p>
 
 	<!-- Multi-block -->
-	<div class="spa-class-box-x2">
+	<div class="spa-class-box spa-class-box-x2">
 		<h2>Multi-Block, all-in-one</h2>
 		<div class="spa-view-button">
 			<form id="Contact_Multiblock_form_getIndex" asp-action="Contact_Index" asp-controller="Simps">
@@ -100,7 +88,7 @@
 				</button>
 			</form>
 		</div>
-		<div class="spa-view-content-x2" id="Contact_Multiblock_getIndex_content">
+		<div class="spa-view-content spa-view-content-x2" id="Contact_Multiblock_getIndex_content">
 			<p>After button click, here will be loaded content.</p>
 		</div>
 	</div>
@@ -113,7 +101,7 @@
 	<!-- ==================== -->
 
 	<!-- Block 1 -->
-	<div class="spa-class-box-x2">
+	<div class="spa-class-box spa-class-box-x2">
 		<h2>Contacts Index</h2>
 		<div class="spa-view-button">
 			<form id="Contact_form_getIndex" asp-action="Contact_Index" asp-controller="Simps">
@@ -125,7 +113,7 @@
 				</button>
 			</form>
 		</div>
-		<div class="spa-view-content-x2" id="Contact_getIndex_content">
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getIndex_content">
 			<p>After button click, here will be loaded content.</p>
 		</div>
 	</div>
@@ -214,7 +202,7 @@
 
 	<!-- Double width block - search -->
 	<!-- Block 6 -->
-	<div class="spa-class-box-x2">
+	<div class="spa-class-box spa-class-box-x2">
 		<h2>Contacts Search</h2>
 		<div class="spa-view-button">
 			<form id="Contact_form_getSearch" asp-action="Contact_Search" asp-controller="Simps">
@@ -226,10 +214,10 @@
 				</button>
 			</form>
 		</div>
-		<div class="spa-view-content-x2" id="Contact_getSearch_content" style="height: 300px;">
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearch_content" style="height: 300px;">
 			<p>After button click, here will be loaded content.</p>
 		</div>
-		<div class="spa-view-content-x2" id="Contact_getSearchResults_content" style="height: 500px;">
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearchResults_content" style="height: 500px;">
 			<p>Space for search results</p>
 		</div>
 	</div>
