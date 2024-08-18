@@ -184,22 +184,14 @@
         // ==========================
 
 
-        // Contact Index, Block 1
-        ajaxWrapper(id_button_submit = "#Contact_getIndex",
-                    id_collecting_form = "#Contact_form_getIndex",
-                    url_server = "Simps/Contact_Index",
-                    id_put_response = "#Contact_getIndex_content"
+        // Partial Contact Create
+        // #Contact_getCreate_content is in main page (Index)
+        ajaxWrapper(id_button_submit = "#Partial_Contact_getCreate",
+                    id_collecting_form = "#Partial_Contact_form_getCreate",
+                    url_server = "Simps/Contact_Create",
+                    id_put_response = "#Contact_getCreate_content"
                     );
 
-
-        // SPA (old)
-        // Single Page Application - matryoshka
-        // Contact Index, Block 1
-        ajaxWrapper(id_button_submit = "#buttonGetContactIndex",
-                    id_collecting_form = "#form",
-                    url_server = "Spas/ShowContactIndex",
-                    id_put_response = "#contactIndexContent"
-                    );
 
 
 
