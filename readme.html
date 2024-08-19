@@ -1,16 +1,32 @@
+<h1>CrudContactListMvc</h1>
+<h2>Create, read, update and delete contact list Model View Controller</h2>
+
 <h1>Tags</h1>
-REST API, CRUD, .NET Core, C#, Web App, Single Page Application, AJAX, Client–server model, JSON responses, POST, GET, SQL Server, all {contacts, categories and subcategorie} in the Database, Scaffolding in Visual Studio IDE, Razor Pages, Model View Controller (MVC)<br/>
+REST API, CRUD, .NET Core, C#, Web App, Single Page Application, AJAX, Client–server model, JSON responses, POST, GET, SQL Server, all {contacts, categories and subcategorie} in the Database, Scaffolding in Visual Studio IDE, Razor Pages, Model View Controller (MVC), Entity Framework<br/>
+
+<h1>Work Report</h1>
+<h2>time spent 12d</h2>
+<h2>overview</h2>
+<p>
+    It took me 12 days to bring this project to current state. This is my second client-server web application project. The previous one was made in python (<a href="https://github.com/Mateuszq28/insurance-cost-prediction">insurance-cost-prediction</a>). It took me some time to read up on .NET Entity Framework. I also tried to do this on a clean Razor pages, but it was like reinvent the wheel. I had some minor problems with linking razor pages tags to local scripts on .cshtml views with global wwwroot/js scripts when partially replacing html tags using AJAX technology without reloading the page. As a result of experiments, in the first attempt, a matryoshka with partial views was created. I put it in the "Single Page Application - matryoshka" tab. The second attempt simplified the architecture. Now, there is only one main site.js script for partial view switch controll. Views - .cshtml files based on Razor pages - are calling this main script in their body. In the simple view, there are 6 simple blocks and one multi-block [in future: <i>for each class. Classes blocks are distinguished by color set.<i/>] Multiblock is located on the top of model class (ex. Contact) CRUD infrastructure. It has one div container for content &ltMODEL Class>_Multiblock_getIndex_content (ex. Contact_Multiblock_getIndex_content). All clicked button AJAX requests responses are anchored to this field. After obtaining answer from server, this answer is swapped with multiblock content container. Of course, the server answer is another form. As a result, multiblock is a self transforming form. It juggles partial views in its conent div. Other blocks doesn't have self-transformation ability. They have one depth grade - only one partial view.
+</p>
 
 <h1>Source of Knowledge</h1>
 <h2>Youtube Channel</h2>
 Programming w/ Professor Sluiter<br/>
 @shadsluiter<br/>
+<h3>His movie about CRUD</h3>
+<h4>(Create, read, update and delete)</h4>
+<h4>ASP.NET Core Crash Course - C# App in One Hour</h4>
+<a href="https://www.youtube.com/watch?v=BfEjDD8mWYg">https://www.youtube.com/watch?v=BfEjDD8mWYg</a><br/>
 <h3>His playlist "ASP.NET Core Web Development"</h3>
 <h4>(50 videos)</h4>
 <a href="https://www.youtube.com/playlist?list=PLhPyEFL5u-i2ShGqmuP3uDdSy06hzBzdo">https://www.youtube.com/playlist?list=PLhPyEFL5u-i2ShGqmuP3uDdSy06hzBzdo</a><br/>
 <h3>His movie about REST</h3>
 <h4>(REpresentational State Transfer)</h4>
 <a href="https://www.youtube.com/playlist?list=PLhPyEFL5u-i2ShGqmuP3uDdSy06hzBzdo">https://www.youtube.com/playlist?list=PLhPyEFL5u-i2ShGqmuP3uDdSy06hzBzdo</a><br/>
+
+
 
 <h1>Stuff to do - to finish the project</h1>
 <ol>
