@@ -4,6 +4,8 @@
 <h1>Tags</h1>
 REST API, CRUD, .NET Core, C#, Web App, Single Page Application, AJAX, Client–server model, JSON responses, POST, GET, SQL Server, all {contacts, categories and subcategorie} in the Database, Scaffolding in Visual Studio IDE, Razor Pages, Model View Controller (MVC), Entity Framework<br/>
 
+<h1><a href="#quick_start">Qucik Start<a/><h1/>
+
 <h1>Work Report - My feelings about this</h1>
 <h2>time spent 12 days</h2>
 <h2>overview</h2>
@@ -178,8 +180,8 @@ public IActionResult Contact_Create(IFormCollection form)
 <h2>Create Operation</h2>
 
 <p align="center">
-<img src="readme_img/create_form_secure.png" alt="Checking create form fields"><br/>
-<i>Checking create form fields</i><br/>
+<img src="readme_img/create_form_secure.png" alt="Checking validation conditions in create form fields"><br/>
+<i>Checking validation conditions in create form fields</i><br/>
 </p>
 
 <p align="center">
@@ -261,7 +263,8 @@ ADD Email NVARCHAR (320) UNIQUE NOT NULL;
 </ol>
 
 
-<h1>Compilation and run notes</h1>
+<h1 id="quick_start">Quick Start<h1/>
+<h2>Compilation and run notes</h2>
 
 <p>It needs dotnet SDK to compile.
 The easiest way to start is to install Visual Studio with .NET Core, Web module.</p><br/>
