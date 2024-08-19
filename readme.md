@@ -84,6 +84,7 @@ I also put some handy SQL queries in SQL_Test folder.<br/>
     I used default Visual Studio Database server - SQL Server. I didn't have to create it from scratch. I used scaffolding. First a migration was created with a Add-Migration InitialCreate command. Migration is a .Net class to generate database based on classes defined in Model folder.<br>
 </p>
 
+<p align="center">
 <img src="readme_img/sql_contact_table.png" alt="Contact Table"><br/>
 <i>Contact Table</i><br/>
 
@@ -92,6 +93,7 @@ I also put some handy SQL queries in SQL_Test folder.<br/>
 
 <img src="readme_img/sql_subcategory_table.png" alt="Subcategory Table"><br/>
 <i>Subcategory Table</i><br/>
+</p>
 
 <h1>Features</h1>
 
