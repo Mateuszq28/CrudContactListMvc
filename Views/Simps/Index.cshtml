@@ -37,7 +37,7 @@
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
-		height: 1095px;
+		height: 200px;
 	}
 	
 	.spa-view-button {
@@ -51,7 +51,7 @@
 	
 	.spa-view-content {
 		background-color: #D99982;
-		height: 930px;
+		height: 50px;
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
@@ -63,6 +63,14 @@
 	.spa-class-box-x2 {
 		width: 910px!important;
 		/* height: 1000px; */
+	}
+
+	.spa-view-content-x2 {
+		height: 50px!important;
+	}
+
+	.spa-view-content-x2 + .spa-view-content-x2 {
+		height: 0px!important;
 	}
 
 	/* .spa-view-content-x2 {
@@ -202,7 +210,7 @@
 
 	<!-- Double width block - search -->
 	<!-- Block 6 -->
-	<div class="spa-class-box spa-class-box-x2" style="height: 965px;">
+	<div class="spa-class-box spa-class-box-x2">
 		<h2>Contacts Search</h2>
 		<div class="spa-view-button">
 			<form id="Contact_form_getSearch" asp-action="Contact_Search" asp-controller="Simps">
@@ -214,10 +222,10 @@
 				</button>
 			</form>
 		</div>
-		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearch_content" style="height: 300px;">
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearch_content">
 			<p>After button click, here will be loaded content.</p>
 		</div>
-		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearchResults_content" style="height: 500px;">
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearchResults_content">
 			<p>Space for search results</p>
 		</div>
 	</div>
