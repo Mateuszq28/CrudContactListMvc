@@ -48,7 +48,9 @@ Programming w/ Professor Sluiter<br/>
 
 <img src="readme_img/app_menu.png" alt="Application menu bar"><br/>
 <i>Application menu bar</i><br/>
+<div style="display: block; backround-color: white;">
 <img src="readme_img/model-view-controller-light-blue.png" alt="Model View Controler Architecture"><br/>
+<div/>
 <i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i><br/>
 <img src="readme_img/ajax.gif" alt="Ajax Architecture"><br/>
 <i>Ajax Architecture <a href="https://www.w3schools.com/xml/ajax_intro.asp">img source</a></i><br/>
@@ -222,8 +224,7 @@ ADD Email NVARCHAR (320) UNIQUE NOT NULL;
 
 
 <h1>Compilation and run notes</h1>
-<p>
-    ```bash
+```bash
     It needs dotnet SDK to compile.<br/>
     The easiest way to start is to install Visual Studio with .NET Core, Web module.<br/><br/>
     open folder in terminal (cmd + enter in File Explorer path field)<br/>
@@ -234,8 +235,7 @@ ADD Email NVARCHAR (320) UNIQUE NOT NULL;
     ./bin/Debug/net8.0/CrudContactListMvc<br/>
     ctr+shift+t<br/>
     explorer "http://localhost:5000/"<br/>
-    ```
-</p>
+```
 
 <h2>Alternative Command</h2>
 <p>
@@ -359,7 +359,7 @@ ADD Email NVARCHAR (320) UNIQUE NOT NULL;
         <b>5_224 TOTALS TOTAL LINES OF CODE (self-written)</b><br/>
     </P>
 </p>
-</div>div>
+</div>
 </body>
     
 
