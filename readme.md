@@ -433,7 +433,7 @@ git ls-files | xargs wc -l | grep ".*SQL_Test/.*"
 ```
 
 <p><b>5_224</b> TOTALS TOTAL LINES OF CODE (self-written with scaffolding help)<br/>
-Scaffolding items required modification, so 5_224 lines of code is fair enough.</p>
+Scaffolding items required modification, so 5_224 lines of code statistic is fair enough.</p>
 
 
 <footer>
