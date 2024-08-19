@@ -80,7 +80,7 @@ There are also Views - located in folders named the same as their corrsesponding
 I also put some handy SQL queries in SQL_Test folder.<br/>
 
 <h1>Database</h1>
-<p>
+<p align="justify">
     I used default Visual Studio Database server - SQL Server. I didn't have to create it from scratch. I used scaffolding. First, a migration was created with a Add-Migration InitialCreate command. Migration is a .Net class to generate database based on classes defined in Model folder. Then, command Update-Database apply Migration and create the Database. SQL table's definitions are accessible from Visual Studio manager. Some corrections are required. Ex. There is no [Unique] atribute in dotnet framework, that I used (.Net 8.0). I needed to apply SQL querry to secure uniqueness of email field. I could have used email as a primery key, but form my experience, it would bring a lot of problems and I would not recomend this.
 </p>
 
