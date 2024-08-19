@@ -48,7 +48,7 @@ Programming w/ Professor Sluiter<br/>
 
 <img src="readme_img/app_menu.png" alt="Application menu bar"><br/>
 <i>Application menu bar</i><br/>
-<img src="readme_img/model-view-controller-light-blue.png" alt="Model View Controler Architecture"><br/>
+<img src="readme_img/model-view-controller-light-blue.jpg" alt="Model View Controler Architecture"><br/>
 <i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i><br/>
 <img src="readme_img/ajax.gif" alt="Ajax Architecture"><br/>
 <i>Ajax Architecture <a href="https://www.w3schools.com/xml/ajax_intro.asp">img source</a></i><br/>
