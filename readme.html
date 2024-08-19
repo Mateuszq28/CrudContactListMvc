@@ -7,6 +7,17 @@
     .center {
         text-align: center;
     }
+
+    img {
+        width: 500px;
+    }
+
+    img + i {
+        text-align: center;
+    }
+    i + i {
+        text-align: center;
+    }
 </style>
 
 <body>
@@ -51,16 +62,16 @@
         </ol>
         In the future it is planned to transform REST API responses and paste obtain text elements into html tags.<br/>
     </p>
-    <div class="center">
-        <img src="readme_img/app_menu.png" alt="Application menu barr" width="500"><br/>
-        <i>Application menu bar</i><br/>
-        <img src="readme_img/model-view-controller-light-blue.png" alt="Model View Controler Architecture" width="500"><br/>
-        <i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i><br/>
-        <img src="readme_img/ajax.gif" alt="Ajax Architecture" width="500"><br/>
-        <i>Ajax Architecture <a href="https://www.w3schools.com/xml/ajax_intro.asp">img source</a></i><br/>
-        <img src="readme_img/rest_api.png" alt="REST API response" width="500"><br/>
-        <i>REST API response</i><br/>
-    </div>
+
+    <img src="readme_img/app_menu.png" alt="Application menu barr"><br/>
+    <i>Application menu bar</i><br/>
+    <img src="readme_img/model-view-controller-light-blue.png" alt="Model View Controler Architecture"><br/>
+    <i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i><br/>
+    <img src="readme_img/ajax.gif" alt="Ajax Architecture"><br/>
+    <i>Ajax Architecture <a href="https://www.w3schools.com/xml/ajax_intro.asp">img source</a></i><br/>
+    <img src="readme_img/rest_api.png" alt="REST API response"><br/>
+    <i>REST API response</i><br/>
+
 
     <h1>Main Classes</h1>
     <ul>
@@ -89,11 +100,59 @@
 
     <h1>Database</h1>
     <p>
-        I used default Visual Studio Database server - SQL Server. Didn't have to create it from scratch. I used scaffolding. First a migration was created with a Add-Migration InitialCreate command. Migration is a .Net class to generate database based on classes defined in Model folder.<br>
+        I used default Visual Studio Database server - SQL Server. I didn't have to create it from scratch. I used scaffolding. First a migration was created with a Add-Migration InitialCreate command. Migration is a .Net class to generate database based on classes defined in Model folder.<br>
     </p>
 
+    <img src="readme_img/sql_contact_table.png" alt="Contact Table"><br/>
+    <i>Contact Table</i><br/>
+
+    <img src="readme_img/sql_category_table.png" alt="Category Table"><br/>
+    <i>Contact Table</i><br/>
+
+    <img src="readme_img/sql_subcategory_table.png" alt="Subcategory Table"><br/>
+    <i>Subcategory Table</i><br/>
 
     <h1>Features</h1>
+
+    <h2>Single Page Application Subsite</h2>
+    
+
+    <h2>Login</h2>
+    ```csharp
+    [Authorize]
+    public IActionResult Contact_Create(IFormCollection form)
+    {
+    ```
+    <i>Using .Net Autorize attribute to acces to create form. This attribute is added not only on the GET view function, but also in function that add record to the database.</i><br/>
+    <i>[Attribute] in C# is an analogue to a @decorator in Python.</i><br/>
+    
+    <img src="readme_img/authorize.png" alt="Login Page"><br/>
+    <i>Login Page</i><br/>
+    
+    <h2>Viewing Contact List</h2>
+    
+    <img src="readme_img/contact_index_standard_view.png" alt="Contact List - Index"><br/>
+    <i>Contact List - Index</i><br/>
+    <i>Standard MVC View (Razor Page)</i><br/>
+    
+    <img src="readme_img/contact_index_ajax_view.png" alt="Contact List - Index"><br/>
+    <i>Contact List - Index</i><br/>
+    <i>Single Page Application - partial view obtain from AJAX functionality</i><br/>
+    
+    <img src="readme_img/contact_index_rest_json_view.png" alt="Contact List - Index"><br/>
+    <i>Contact List - Index</i><br/>
+    <i>REST API capabilities presentation</i><br/>
+    <i>Server response received in JSON format</i><br/>
+    <i>It can be usd to fill independent html-json template.</i><br/>
+    <i>It can also be used for different kinds of application, ex. interconection with a smartphone app.</i><br/>
+
+    <h2>Viewing Contact List</h2>
+    
+    <img src="readme_img/contact_index_standard_view.png" alt="Contact List - Index"><br/>
+    <i>Contact List - Index</i><br/>
+    <i>Standard MVC View (Razor Page)</i><br/>
+
+
     ```sql
     ALTER TABLE Contact
     DROP COLUMN Email;
