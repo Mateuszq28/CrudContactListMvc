@@ -1,25 +1,3 @@
-<style>
-    body > div {
-        width: 500px;
-        display: block;;
-    }
-
-    .center {
-        text-align: center;
-    }
-
-    img {
-        width: 500px;
-    }
-
-    img + i {
-        text-align: center;
-    }
-    i + i {
-        text-align: center;
-    }
-</style>
-
 <body>
 <div>
 <h1>CrudContactListMvc</h1>
