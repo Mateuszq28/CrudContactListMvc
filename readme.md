@@ -1,4 +1,4 @@
-<h4>compilation run notes</h4>
+<h2>compilation run notes</h2>
 <br/><br/>
 <p>
 open folder in terminal (cmd + enter in File Explorer path field)<br/>
@@ -11,5 +11,5 @@ ctr+shift+t<br/>
 explorer "http://localhost:5000/"<br/>
 </p>
 <br/><br/>
-<h4>Alternative command</h4>
+<h2>Alternative command</h2>
 dotnet run build
