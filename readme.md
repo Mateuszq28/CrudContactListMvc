@@ -49,7 +49,13 @@ Programming w/ Professor Sluiter<br/>
 <img src="readme_img/app_menu.png" alt="Application menu bar"><br/>
 <i>Application menu bar</i><br/>
 <div style="display: block; backround-color: white;">
-<img src="readme_img/model-view-controller-light-blue.png" alt="Model View Controler Architecture"><br/>
+<img src="readme_img/model-view-controller-light-blue.png" alt="Model View Controler Architecture" style="::before {
+  background-color: rgba(240, 216, 171, 0.25);
+  display: block;
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: inherit;"><br/>
 <div/>
 <i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i><br/>
 <img src="readme_img/ajax.gif" alt="Ajax Architecture"><br/>
