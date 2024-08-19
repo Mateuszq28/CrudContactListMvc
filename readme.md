@@ -17,7 +17,7 @@ REST API, CRUD, .NET Core, C#, Web App, Single Page Application, AJAX, Client–
 <h2>Single Page Application subsite</h2>
 <h2>Page Design</h2>
 <img src="readme_img/simps_small_boxes.png" alt="Single Page Application subsite" align="center"><br/>
-<i align="center">Multi-box (self-transforming) + 6 1-depth partial View boxes.</i><br/>
+<p align="center"><i>Multi-box (self-transforming) + 6 1-depth partial View boxes.</i></p><br/>
 
 <h1>Source of Knowledge</h1>
 <h2>Youtube Channel</h2>
