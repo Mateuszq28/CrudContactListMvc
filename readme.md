@@ -1,5 +1,3 @@
-<body>
-<div>
 <h1>CrudContactListMvc</h1>
 <h2>Create, read, update and delete contact list Model View Controller</h2>
 
@@ -358,8 +356,7 @@ explorer "http://localhost:5000/"<br/>
         <b>5_224 TOTALS TOTAL LINES OF CODE (self-written)</b><br/>
     </P>
 </p>
-</div>
-</body>
+
     
 
     
