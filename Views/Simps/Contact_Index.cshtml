@@ -1,0 +1,117 @@
+﻿@model IEnumerable<CrudContactListMvc.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .all_center * {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .buttons_inline > form {
+        display: inline;
+    }
+</style>
+
+<div class="all_center">
+<h1>Contacts</h1>
+<p>Current time: @DateTime.Now</p>
+
+<p>
+    <form id="Partial_Contact_form_getCreate" asp-action="Contact_Create" asp-controller="Simps">
+        <button id="Partial_Contact_getCreate"
+                name="Partial_Contact_getCreate"
+                type="submit"
+                value="Partial_Contact_getCreate">
+            Create New
+        </button>
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subcategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subcategory.Name)
+            </td>
+            <td>
+                <div class="buttons_inline">
+
+                    <form id="Partial_Contact_form_getEdit"
+                          asp-action="Contact_Edit"
+                          asp-controller="Simps">
+                        <button id="Partial_Contact_getEdit"
+                                name="Partial_Contact_getEdit"
+                                type="submit"
+                                value="@item.Id">
+                            Edit
+                        </button>
+                    </form> | 
+
+                    <form id="Partial_Contact_form_getDetails"
+                          asp-action="Contact_Details"
+                          asp-controller="Simps">
+                        <button id="Partial_Contact_getDetails"
+                                name="button"
+                                type="submit"
+                                value="@item.Id">
+                            Details
+                        </button>
+                    </form> | 
+
+                    <form id="Partial_Contact_form_getDelete"
+                          asp-action="Contact_Delete"
+                          asp-controller="Simps">
+                        <button id="Partial_Contact_getDelete"
+                                name="Partial_Contact_getDelete"
+                                type="submit"
+                                value="@item.Id">
+                            Delete
+                        </button>
+                    </form>
+
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
+
+<script src="js/site.js"></script>

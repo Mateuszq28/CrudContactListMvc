@@ -1,72 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CrudContactListMvc.Data;
+using CrudContactListMvc.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CrudContactListMvc.Data;
-using CrudContactListMvc.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace CrudContactListMvc.Controllers
 {
-    public class ContactsController : Controller
+    public class SpasController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ContactsController(ApplicationDbContext context)
+        public SpasController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Contacts
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Contact.Include(c => c.Category).Include(c => c.Subcategory);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
-        // GET: Contacts/ShowSearchForm
-        public IActionResult ShowSearchForm()
+        // GET: MAIN PAGE
+        public IActionResult Index()
         {
             return View();
         }
 
-        // PoST: Contacts/ShowSearchResults
-        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+
+        // GET: Contacts
+        public async Task<IActionResult> ShowContactIndex()
         {
-            return View("Index", await _context.Contact.Where( j => (j.Name.Contains(SearchPhrase) ||
-                                                                     j.Surname.Contains(SearchPhrase) ||
-                                                                     j.Email.Contains(SearchPhrase) ||
-                                                                     //j.BirthDate.Date.Equals(DateTime.Parse(SearchPhrase).Date) ||
-                                                                     j.Phone.Contains(SearchPhrase)) ).ToListAsync());
+            var applicationDbContext = _context.Contact.Include(c => c.Category).Include(c => c.Subcategory);
+            return PartialView(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Contacts/Details/5
-        [Authorize]
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var contact = await _context.Contact
-                .Include(c => c.Category)
-                .Include(c => c.Subcategory)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
-
-            return View(contact);
-        }
 
         // GET: Contacts/Create
         [Authorize]
-        public IActionResult Create()
+        public IActionResult Create(IFormCollection form)
         {
             // string for condition to show drop-down subcategory menu
             Category expectedCategory = _context.Category.Where(m => m.Id == 1).First();
@@ -123,7 +90,7 @@ namespace CrudContactListMvc.Controllers
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory.Where(m => m.CategoryId == 1), "Id", "Name");
 
 
-            return View();
+            return PartialView();
         }
 
         // POST: Contacts/Create
@@ -132,7 +99,7 @@ namespace CrudContactListMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create(IFormCollection form)
+        public async Task<IActionResult> CreateReturn(IFormCollection form)
         {
             string newSubcatName = form["NewCategory"];
 
@@ -171,7 +138,7 @@ namespace CrudContactListMvc.Controllers
             {
                 contact.SubcategoryId = int.Parse(form["SubcategoryId"]);
             }
-            
+
 
 
 
@@ -183,8 +150,30 @@ namespace CrudContactListMvc.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", contact.CategoryId);
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Name", contact.SubcategoryId);
-            return View(contact);
+            return PartialView(contact);
         }
+
+        // GET: Contacts/Details/5
+        [Authorize]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var contact = await _context.Contact
+                .Include(c => c.Category)
+                .Include(c => c.Subcategory)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (contact == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView(contact);
+        }
+
 
         // GET: Contacts/Edit/5
         [Authorize]
@@ -202,7 +191,7 @@ namespace CrudContactListMvc.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", contact.CategoryId);
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Id", contact.SubcategoryId);
-            return View(contact);
+            return PartialView(contact);
         }
 
         // POST: Contacts/Edit/5
@@ -240,7 +229,7 @@ namespace CrudContactListMvc.Controllers
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Id", contact.CategoryId);
             ViewData["SubcategoryId"] = new SelectList(_context.Subcategory, "Id", "Id", contact.SubcategoryId);
-            return View(contact);
+            return PartialView(contact);
         }
 
         // GET: Contacts/Delete/5
@@ -261,7 +250,7 @@ namespace CrudContactListMvc.Controllers
                 return NotFound();
             }
 
-            return View(contact);
+            return PartialView(contact);
         }
 
         // POST: Contacts/Delete/5
@@ -284,5 +273,44 @@ namespace CrudContactListMvc.Controllers
         {
             return _context.Contact.Any(e => e.Id == id);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

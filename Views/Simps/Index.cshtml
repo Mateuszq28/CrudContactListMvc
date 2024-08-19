@@ -1,0 +1,284 @@
+﻿@model IEnumerable<CrudContactListMvc.Models.Simp>
+
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+	.space-grotesk-regular {
+		font-family: "Space Grotesk", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	* {
+		font-family: space-grotesk-regular;
+	}
+
+	.list {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		grid-template-rows: repeat(2, 1fr);
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		place-content: center;
+	}
+
+	.spa-class-box {
+		background-color: #D6D9CC;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		border: solid #0D0D0D 2px;
+		border-radius: 25px;
+		width: 450px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		height: 1095px;
+	}
+	
+	.spa-view-button {
+		padding: 20px;
+		background-color: #6F7356;
+	}
+	
+	.spa-view-button button {
+		background-color: #BF3604;
+	}
+	
+	.spa-view-content {
+		background-color: #D99982;
+		height: 930px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+	
+
+	.spa-class-box-x2 {
+		width: 910px!important;
+		/* height: 1000px; */
+	}
+
+	/* .spa-view-content-x2 {
+		height: 800px;
+	} */
+
+</style>
+
+<body>
+	<h1>Single Page Application</h1>
+	<p>Current time: @DateTime.Now</p>
+
+	<!-- Multi-block -->
+	<div class="spa-class-box spa-class-box-x2">
+		<h2>Multi-Block, all-in-one</h2>
+		<div class="spa-view-button">
+			<form id="Contact_Multiblock_form_getIndex" asp-action="Contact_Index" asp-controller="Simps">
+				<button id="Contact_Multiblock_getIndex"
+						name="Contact_Multiblock_getIndex"
+						type="submit"
+						value="Contact_Multiblock_getIndex">
+					Get Contact Index
+				</button>
+			</form>
+		</div>
+		<div class="spa-view-content spa-view-content-x2" id="Contact_Multiblock_getIndex_content">
+			<p>After button click, here will be loaded content.</p>
+		</div>
+	</div>
+
+	<!-- ==================== -->
+	<!-- CONTACT INTERACTIONS -->
+	<!-- 1 wide block -->
+	<!-- Grid 2x2 -->
+	<!-- 1 wide block -->
+	<!-- ==================== -->
+
+	<!-- Block 1 -->
+	<div class="spa-class-box spa-class-box-x2">
+		<h2>Contacts Index</h2>
+		<div class="spa-view-button">
+			<form id="Contact_form_getIndex" asp-action="Contact_Index" asp-controller="Simps">
+				<button id="Contact_getIndex"
+						name="Contact_getIndex"
+						type="submit"
+						value="Contact_getIndex">
+					Get Contact Index
+				</button>
+			</form>
+		</div>
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getIndex_content">
+			<p>After button click, here will be loaded content.</p>
+		</div>
+	</div>
+
+	<div class="list">
+
+		<!-- Block 2 -->
+		<div class="spa-class-box">
+			<h2>Contacts Create</h2>
+			<div class="spa-view-button">
+				<form id="Contact_form_getCreate" asp-action="Contact_Create" asp-controller="Simps">
+					<button id="Contact_getCreate"
+							name="Contact_getCreate"
+							type="submit"
+							value="Contact_getCreate">
+						Get Contact Create
+					</button>
+				</form>
+			</div>
+			<div class="spa-view-content" id="Contact_getCreate_content">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+		<!-- Block 3 -->
+		<div class="spa-class-box">
+			<h2>Contacts Details</h2>
+			<div class="spa-view-button" style="height: 70px;">
+				<!--
+				<form id="Contact_form_getDetails" asp-action="Contact_Details" asp-controller="Simps">
+					<button id="Contact_getDetails"
+							name="Contact_getDetails"
+							type="submit"
+							value="Contact_getDetails">
+						Get Contact Details
+					</button>
+				</form>
+				-->
+			</div>
+			<div class="spa-view-content" id="Contact_getDetails_content">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+		<!-- Block 4 -->
+		<div class="spa-class-box">
+			<h2>Contacts Edit</h2>
+			<div class="spa-view-button">
+				<!--
+				<form id="Contact_form_getEdit" asp-action="Contact_Edit" asp-controller="Simps">
+					<button id="Contact_getEdit"
+							name="Contact_getEdit"
+							type="submit"
+							value="Contact_getEdit">
+						Get Contact Edit
+					</button>
+				</form>
+				-->
+			</div>
+			<div class="spa-view-content" id="Contact_getEdit_content">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+		<!-- Block 5 -->
+		<div class="spa-class-box">
+			<h2>Contacts Delete</h2>
+			<div class="spa-view-button">
+				<!--
+				<form id="Contact_form_getDelete" asp-action="Contact_Delete" asp-controller="Simps">
+					<button id="Contact_getDelete"
+							name="Contact_getDelete"
+							type="submit"
+							value="Contact_getDelete">
+						Get Contact Delete
+					</button>
+				</form>
+				-->
+			</div>
+			<div class="spa-view-content" id="Contact_getDelete_content">
+				<p>After button click, here will be loaded content.</p>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Double width block - search -->
+	<!-- Block 6 -->
+	<div class="spa-class-box spa-class-box-x2" style="height: 965px;">
+		<h2>Contacts Search</h2>
+		<div class="spa-view-button">
+			<form id="Contact_form_getSearch" asp-action="Contact_Search" asp-controller="Simps">
+				<button id="Contact_getSearch"
+						name="Contact_getSearch"
+						type="submit"
+						value="Contact_getSearch">
+					Get Contact Search
+				</button>
+			</form>
+		</div>
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearch_content" style="height: 300px;">
+			<p>After button click, here will be loaded content.</p>
+		</div>
+		<div class="spa-view-content spa-view-content-x2" id="Contact_getSearchResults_content" style="height: 500px;">
+			<p>Space for search results</p>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--
+
+	<div class="spa-class-box">
+		<h2>Contacts</h2>
+		<div class="spa-view-button">
+			<button>Get Contact Index</button>
+		</div>
+		<div class="spa-view-content">
+			<p>After button click, here will be loaded content.</p>
+		</div>
+	</div>
+
+	-->
+
+
+</body>
+
+
+
+<!-- Java Script -->
+<!-- Java Script in wwwroot/js/site.js -->
+<!--
+<script>
+	
+</script>
+-->

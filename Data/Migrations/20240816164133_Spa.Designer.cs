@@ -4,6 +4,7 @@ using CrudContactListMvc.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrudContactListMvc.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240816164133_Spa")]
+    partial class Spa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,15 +37,10 @@ namespace CrudContactListMvc.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SimpId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SpaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SimpId");
 
                     b.HasIndex("SpaId");
 
@@ -79,9 +77,6 @@ namespace CrudContactListMvc.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SimpId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SpaId")
                         .HasColumnType("int");
 
@@ -96,26 +91,11 @@ namespace CrudContactListMvc.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("SimpId");
-
                     b.HasIndex("SpaId");
 
                     b.HasIndex("SubcategoryId");
 
                     b.ToTable("Contact");
-                });
-
-            modelBuilder.Entity("CrudContactListMvc.Models.Simp", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Simp");
                 });
 
             modelBuilder.Entity("CrudContactListMvc.Models.Spa", b =>
@@ -146,17 +126,12 @@ namespace CrudContactListMvc.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SimpId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SpaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("SimpId");
 
                     b.HasIndex("SpaId");
 
@@ -367,10 +342,6 @@ namespace CrudContactListMvc.Data.Migrations
 
             modelBuilder.Entity("CrudContactListMvc.Models.Category", b =>
                 {
-                    b.HasOne("CrudContactListMvc.Models.Simp", null)
-                        .WithMany("CategoryList")
-                        .HasForeignKey("SimpId");
-
                     b.HasOne("CrudContactListMvc.Models.Spa", null)
                         .WithMany("CategoryList")
                         .HasForeignKey("SpaId");
@@ -383,10 +354,6 @@ namespace CrudContactListMvc.Data.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("CrudContactListMvc.Models.Simp", null)
-                        .WithMany("ContactList")
-                        .HasForeignKey("SimpId");
 
                     b.HasOne("CrudContactListMvc.Models.Spa", null)
                         .WithMany("ContactList")
@@ -408,10 +375,6 @@ namespace CrudContactListMvc.Data.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("CrudContactListMvc.Models.Simp", null)
-                        .WithMany("SubcategoryList")
-                        .HasForeignKey("SimpId");
 
                     b.HasOne("CrudContactListMvc.Models.Spa", null)
                         .WithMany("SubcategoryList")
@@ -474,15 +437,6 @@ namespace CrudContactListMvc.Data.Migrations
             modelBuilder.Entity("CrudContactListMvc.Models.Category", b =>
                 {
                     b.Navigation("Subcategory");
-                });
-
-            modelBuilder.Entity("CrudContactListMvc.Models.Simp", b =>
-                {
-                    b.Navigation("CategoryList");
-
-                    b.Navigation("ContactList");
-
-                    b.Navigation("SubcategoryList");
                 });
 
             modelBuilder.Entity("CrudContactListMvc.Models.Spa", b =>

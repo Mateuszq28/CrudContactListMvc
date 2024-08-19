@@ -1,0 +1,175 @@
+﻿@model IEnumerable<CrudContactListMvc.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    form {
+        display: inline;
+    }
+</style>
+
+<h1>Contacts</h1>
+<p>Current time: @DateTime.Now</p>
+
+<p>
+    <form asp-controller="Spas" asp-action="Create">
+        <button id="#buttonCreate"
+                type="submit"
+                name="buttonCreate"
+                value="butPressed">
+            Create New
+        </button>
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subcategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subcategory.Name)
+                </td>
+                <td>
+                    <form id="form_buttonEdit" asp-controller="Spas" asp-action="Edit" asp-route-id="@item.Id">
+                        <button id="buttonEdit"
+                                type="submit"
+                                name="buttonEdit"
+                                value="butPressed">
+                            Edit
+                        </button>
+                    </form> |
+                    <form id="form_buttonDetails" asp-controller="Spas" asp-action="Details" asp-route-id="@item.Id">
+                        <button id="buttonDetails"
+                                type="submit"
+                                name="buttonDetails"
+                                value="butPressed">
+                            Details
+                        </button>
+                    </form> |
+                    <form id="form_buttonDelete" asp-controller="Spas" asp-action="Delete" asp-route-id="@item.Id">
+                        <button id="buttonDelete"
+                                type="submit"
+                                name="buttonDelete"
+                                value="butPressed">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+
+    // update HTML elemendt by its id
+    function updateElement(id, data) {
+        console.log(data);
+        $(id).html(data)
+    }
+
+
+    function getPartialViewAjax(path, data_in) {
+        $.ajax({
+            type: "POST",
+            url: path,
+            data: data_in,
+            success: function (response) {
+                console.log("data posted to the controller:");
+                console.log(data_in);
+                updateElement("#contactIndexContent", response);
+            }
+        });
+    }
+
+
+    // CONTACT INDEX
+
+
+    var crBut = document.getElementById("#buttonCreate");
+    crBut.onclick = function (event) {
+        event.preventDefault();
+
+        console.log("create button was clicked");
+        data_in = null;
+        console.log("data posted to the controller (RAW):");
+        console.log(data_in);
+
+        getPartialViewAjax('Spas/Create', data_in);
+    };
+
+
+    
+    var edBut = document.getElementById("#buttonEdit");
+    edBut.onclick = function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonEdit").serialize();
+
+        getPartialViewAjax('Spas/Edit', data_in);
+    };
+    
+    /*
+    $("#buttonEdit").click( function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonEdit").serialize();
+
+        getPartialViewAjax('Spas/Edit', data_in);
+    });
+    */
+
+    var dtBut = document.getElementById("#buttonDetails");
+    dtBut.onclick = function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonDetails").serialize();
+
+        getPartialViewAjax('Spas/Details', data_in);
+    };
+
+    var delBut = document.getElementById("#buttonDelete");
+    delBut.onclick = function (event) {
+        event.preventDefault();
+
+        data_in = $("form_buttonDelete").serialize();
+
+        getPartialViewAjax('Spas/Delete', data_in);
+    };
+
+</script>
