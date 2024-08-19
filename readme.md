@@ -430,13 +430,14 @@ git ls-files | xargs wc -l | grep ".*SQL_Test/.*"
 2 SQL_Test/select_all.sql
 15 SQL_Test/test_add.sql
 99 TOTAL<
-5_224 TOTALS TOTAL LINES OF CODE (self-written)
 ```
 
+<p>5_224 TOTALS TOTAL LINES OF CODE (self-written)</p>
 
 
 <footer>
 <h3>Footer</h3>
+Author: Mateusz Miler
 Code from: <a href="https://github.com/Mateuszq28/CrudContactListMvc">https://github.com/Mateuszq28/CrudContactListMvc</a><br/>
 Discussion about line counting methodology <i>(with git ls-files): </i> <a href="https://stackoverflow.com/questions/4822471/count-number-of-lines-in-a-git-repository">https://stackoverflow.com/questions/4822471/count-number-of-lines-in-a-git-repository</a><br/>
 <i>(with find): </i><a href="https://stackoverflow.com/questions/1358540/how-can-i-count-all-the-lines-of-code-in-a-directory-recursively">https://stackoverflow.com/questions/1358540/how-can-i-count-all-the-lines-of-code-in-a-directory-recursively</a><br/>
