@@ -267,13 +267,13 @@ ADD Email NVARCHAR (320) UNIQUE NOT NULL;
 The easiest way to start is to install Visual Studio with .NET Core, Web module.</p><br/>
 
 ```shell
-open folder in terminal (write cmd + enter in File Explorer path field)
+# open folder in terminal (write cmd + enter in File Explorer path field)
 git clone git@github.com:Mateuszq28/CrudContactListMvc.git
 cd CrudContactListMvc
 dotnet build
 cp -r wwwroot ./bin/Debug/net8.0/wwwroot
 ./bin/Debug/net8.0/CrudContactListMvc
-ctr+shift+t
+# ctr+shift+t
 explorer "http://localhost:5000/"
 ```
 
