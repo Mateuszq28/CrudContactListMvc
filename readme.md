@@ -36,6 +36,11 @@
             Other tabs on the header menu are classical (Controller) &lt--&gt (View Page) exchange interfaces to interact with the Database SQL Server.
     </p>
 
+    <h2>Single Page Application subsite</h2>
+    <h2>Page Design</h2>
+    <img src="readme_img/simps_small_boxes.png" alt="Single Page Application subsite"><br/>
+    <i>Multi-box (self-transforming) + 6 1-depth partial View boxes.</i><br/>
+
     <h1>Source of Knowledge</h1>
     <h2>Youtube Channel</h2>
     Programming w/ Professor Sluiter<br/>
@@ -63,7 +68,7 @@
         In the future it is planned to transform REST API responses and paste obtain text elements into html tags.<br/>
     </p>
 
-    <img src="readme_img/app_menu.png" alt="Application menu barr"><br/>
+    <img src="readme_img/app_menu.png" alt="Application menu bar"><br/>
     <i>Application menu bar</i><br/>
     <img src="readme_img/model-view-controller-light-blue.png" alt="Model View Controler Architecture"><br/>
     <i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i><br/>
@@ -114,9 +119,6 @@
 
     <h1>Features</h1>
 
-    <h2>Single Page Application Subsite</h2>
-    
-
     <h2>Login</h2>
     ```csharp
     [Authorize]
@@ -135,7 +137,7 @@
     <i>Contact List - Index</i><br/>
     <i>Standard MVC View (Razor Page)</i><br/>
     
-    <img src="readme_img/contact_index_ajax_view.png" alt="Contact List - Index"><br/>
+    <img src="readme_img/contact_index_spa_ajax_view.png" alt="Contact List - Index"><br/>
     <i>Contact List - Index</i><br/>
     <i>Single Page Application - partial view obtain from AJAX functionality</i><br/>
     
@@ -146,12 +148,56 @@
     <i>It can be usd to fill independent html-json template.</i><br/>
     <i>It can also be used for different kinds of application, ex. interconection with a smartphone app.</i><br/>
 
-    <h2>Viewing Contact List</h2>
+    <h2>Viewing Category List</h2>
     
-    <img src="readme_img/contact_index_standard_view.png" alt="Contact List - Index"><br/>
-    <i>Contact List - Index</i><br/>
+    <img src="readme_img/category_index.png" alt="Category List - Index"><br/>
+    <i>Category List - Index</i><br/>
     <i>Standard MVC View (Razor Page)</i><br/>
 
+    <h2>Viewing Subcategory List</h2>
+    
+    <img src="readme_img/subcategory_index_page.png" alt="Subcategory List - Index"><br/>
+    <i>Subcategory List - Index</i><br/>
+    <i>Standard MVC View (Razor Page)</i><br/>
+
+    <h2>CRUD operations</h2>
+
+    <img src="readme_img/contact_details.png" alt="Details View"><br/>
+    <i>Details View</i><br/>
+
+    <img src="readme_img/contact_edit.png" alt="Contact Edit"><br/>
+    <i>Contact Edit</i><br/>
+
+    <img src="readme_img/contact_delete.png" alt="Delete Confirmation"><br/>
+    <i>Delete Confirmation</i><br/>
+
+    <h2>Create Operation</h2>
+
+    <img src="readme_img/create_form_secure.png" alt="Checking create form fields"><br/>
+    <i>Checking create form fields</i><br/>
+
+    <img src="readme_img/create_business.png" alt="Subcategory - Business"><br/>
+    <i>Subcategory - Business</i><br/>
+
+    <img src="readme_img/create_private.png" alt="Subcategory - Private"><br/>
+    <i>Subcategory - Private</i><br/>
+
+    <img src="readme_img/create_other.png" alt="Subcategory - Other"><br/>
+    <i>Subcategory - Other</i><br/>
+
+    ```js
+    function CheckEmail()
+    {
+        var emailInput = document.getElementById("emailInput");
+        var emails = @Html.Raw(Json.Serialize(ViewBag.emails));
+        if (emails.includes(emailInput.value))
+        {
+            emailInput.value = "This email is already in the Database."
+        }
+
+    }
+    ```
+    <i>Email uniqueness condition in Java Script</i>
 
     ```sql
     ALTER TABLE Contact
@@ -160,7 +206,7 @@
     ALTER TABLE Contact
     ADD Email NVARCHAR (320) UNIQUE NOT NULL;
     ```
-
+    <i>Email uniqueness secure column in SQL Server</i>
 
     <h1>Stuff to do - to finish the project</h1>
     <ol>
