@@ -7,7 +7,7 @@
 REST API, CRUD, .NET Core, C#, Web App, Single Page Application, AJAX, Client–server model, JSON responses, POST, GET, SQL Server, all {contacts, categories and subcategorie} in the Database, Scaffolding in Visual Studio IDE, Razor Pages, Model View Controller (MVC), Entity Framework<br/>
 
 <h1>Work Report</h1>
-<h2>time spent 12d</h2>
+<h2>time spent 12 days</h2>
 <h2>overview</h2>
 <p align="justify">
     It took me 12 days [full days, from 12AM to 3AM with some shopping & dinner few hour breaks] to bring this project to current state. This is my second client-server web application project. The previous one was made in python (<a href="https://github.com/Mateuszq28/insurance-cost-prediction">insurance-cost-prediction</a>). It took me some time to read up on .NET Entity Framework. I also tried to do this on a clean Razor pages, but it was like reinvent the wheel. I had some minor problems with linking @script{razor} pages tags to local scripts on .cshtml views with global wwwroot/js scripts when partially replacing html tags using AJAX technology without reloading the page. As a result of experiments, in the first attempt, a matryoshka with partial views was created. I put it in the "Single Page Application - matryoshka" tab. The second attempt simplified the architecture. Now, there is only one main site.js script for partial view switch controll. Views - .cshtml files based on Razor pages - are calling this main script in their body. In the simple view, there are 6 simple blocks and one multi-block [in future: <i>for each class. Classes blocks are distinguished by color set.</i>] Multiblock is located on the top of model class (ex. Contact) CRUD infrastructure. It has one div container for content &ltMODEL Class>_Multiblock_getIndex_content (ex. Contact_Multiblock_getIndex_content). All clicked button AJAX requests responses are anchored to this field. After obtaining answer from server, this answer is swapped with multiblock content container. Of course, the server answer is another form. As a result, multiblock is a self transforming form. It juggles partial views in its conent div. Other blocks doesn't have self-transformation ability. They have one depth grade - only one partial view.<br/>
@@ -16,8 +16,8 @@ REST API, CRUD, .NET Core, C#, Web App, Single Page Application, AJAX, Client–
 
 <h2>Single Page Application subsite</h2>
 <h2>Page Design</h2>
-<img src="readme_img/simps_small_boxes.png" alt="Single Page Application subsite"><br/>
-<i>Multi-box (self-transforming) + 6 1-depth partial View boxes.</i><br/>
+<img src="readme_img/simps_small_boxes.png" alt="Single Page Application subsite" align="center"><br/>
+<i align="center">Multi-box (self-transforming) + 6 1-depth partial View boxes.</i><br/>
 
 <h1>Source of Knowledge</h1>
 <h2>Youtube Channel</h2>
