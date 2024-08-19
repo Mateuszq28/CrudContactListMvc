@@ -4,7 +4,7 @@
 <h1>Tags</h1>
 REST API, CRUD, .NET Core, C#, Web App, Single Page Application, AJAX, Client–server model, JSON responses, POST, GET, SQL Server, all {contacts, categories and subcategorie} in the Database, Scaffolding in Visual Studio IDE, Razor Pages, Model View Controller (MVC), Entity Framework<br/>
 
-<h1>Work Report</h1>
+<h1>Work Report - My feelings about this</h1>
 <h2>time spent 12 days</h2>
 <h2>overview</h2>
 <p align="justify">
@@ -44,14 +44,14 @@ Programming w/ Professor Sluiter<br/>
     In the future it is planned to transform REST API responses and paste obtain text elements into html tags.<br/>
 </p>
 
-<img src="readme_img/app_menu.png" alt="Application menu bar"><br/>
-<i>Application menu bar</i><br/>
-<img src="readme_img/model-view-controller-light-blue.jpg" alt="Model View Controler Architecture"><br/>
-<i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i><br/>
-<img src="readme_img/ajax.gif" alt="Ajax Architecture"><br/>
-<i>Ajax Architecture <a href="https://www.w3schools.com/xml/ajax_intro.asp">img source</a></i><br/>
-<img src="readme_img/rest_api.png" alt="REST API response"><br/>
-<i>REST API response</i><br/>
+<p align="center"><img src="readme_img/app_menu.png" alt="Application menu bar"><br/>
+<i>Application menu bar</i></p><br/>
+<p align="center"><img src="readme_img/model-view-controller-light-blue.jpg" alt="Model View Controler Architecture"><br/>
+<i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i></p><br/>
+<p align="center"><img src="readme_img/ajax.gif" alt="Ajax Architecture"><br/>
+<i>Ajax Architecture <a href="https://www.w3schools.com/xml/ajax_intro.asp">img source</a></i></p><br/>
+<p align="center"><img src="readme_img/rest_api.png" alt="REST API response"><br/>
+<i>REST API response</i></p><br/>
 
 
 <h1>Main Classes</h1>
