@@ -350,7 +350,7 @@ git ls-files | xargs wc -l | grep ".*Models/.*"
 172 Models/SeedData.cs
 15 Models/Simp.cs
 15 Models/Spa.cs
-22 Models/Subcategory.cs<
+22 Models/Subcategory.cs
 315 TOTAL
 
 git ls-files | xargs wc -l | grep ".*Controllers/.*"
@@ -397,7 +397,7 @@ git ls-files | xargs wc -l | grep ".*Views/.*"
 49 Views/Simps/Subcategory_Create.cshtml
 44 Views/Simps/Subcategory_Delete.cshtml
 47 Views/Simps/Subcategory_Details.cshtml
-50 Views/Simps/Subcategory_Edit.cshtml<
+50 Views/Simps/Subcategory_Edit.cshtml
 52 Views/Simps/Subcategory_Index.cshtml
 286 Views/Spas/Create.cshtml
 69 Views/Spas/Delete.cshtml
@@ -429,10 +429,11 @@ git ls-files | xargs wc -l | grep ".*SQL_Test/.*"
 6 SQL_Test/reset_id_numeration.sql
 2 SQL_Test/select_all.sql
 15 SQL_Test/test_add.sql
-99 TOTAL<
+99 TOTAL
 ```
 
-<p>5_224 TOTALS TOTAL LINES OF CODE (self-written)</p>
+<p><b>5_224</b> TOTALS TOTAL LINES OF CODE (self-written with scaffolding help)<br/>
+Scaffolding items required modification, so 5_224 lines of code is fair enough.</p>
 
 
 <footer>
