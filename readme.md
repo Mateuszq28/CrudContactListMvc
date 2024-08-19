@@ -263,10 +263,11 @@ ADD Email NVARCHAR (320) UNIQUE NOT NULL;
 
 <h1>Compilation and run notes</h1>
 
+<p>It needs dotnet SDK to compile.
+The easiest way to start is to install Visual Studio with .NET Core, Web module.</p><br/>
+
 ```shell
-It needs dotnet SDK to compile.
-The easiest way to start is to install Visual Studio with .NET Core, Web module.
-open folder in terminal (cmd + enter in File Explorer path field)
+open folder in terminal (write cmd + enter in File Explorer path field)
 git clone git@github.com:Mateuszq28/CrudContactListMvc.git
 cd CrudContactListMvc
 dotnet build
@@ -342,94 +343,94 @@ git ls-files | xargs wc -l | grep ".*SQL_Test/.*"
 <h4>list by category results</h4>
 
 ```shell
-git ls-files | xargs wc -l | grep ".*Models/.*"<br/>
-25 Models/Category.cs<br/>
-66 Models/Contact.cs<br/>
-9 Models/ErrorViewModel.cs<br/>
-172 Models/SeedData.cs<br/>
-15 Models/Simp.cs<br/>
-15 Models/Spa.cs<br/>
-22 Models/Subcategory.cs<br/>
-<b>315 TOTAL</b><br/><br/>
+git ls-files | xargs wc -l | grep ".*Models/.*"
+25 Models/Category.cs
+66 Models/Contact.cs
+9 Models/ErrorViewModel.cs
+172 Models/SeedData.cs
+15 Models/Simp.cs
+15 Models/Spa.cs
+22 Models/Subcategory.cs<
+315 TOTAL
 
-git ls-files | xargs wc -l | grep ".*Controllers/.*"<br/>
-172 Controllers/CategoriesController.cs<br/>
-288 Controllers/ContactsController.cs<br/>   
-32 Controllers/HomeController.cs<br/>
-630 Controllers/SimpsController.cs<br/>
-624 Controllers/SimpsControllerAPI.cs<br/>
-316 Controllers/SpasController.cs<br/>
-173 Controllers/SubcategoriesController.cs<br/>
-<b>1_611 TOTAL</b><br/><br/>
+git ls-files | xargs wc -l | grep ".*Controllers/.*"
+172 Controllers/CategoriesController.cs
+288 Controllers/ContactsController.cs
+32 Controllers/HomeController.cs<
+630 Controllers/SimpsController.cs
+624 Controllers/SimpsControllerAPI.cs
+316 Controllers/SpasController.cs
+173 Controllers/SubcategoriesController.cs
+1_611 TOTAL
 
-git ls-files | xargs wc -l | grep ".*Views/.*"<br/>
-33 Views/Categories/Create.cshtml<br/>
-27 Views/Categories/Delete.cshtml<br/>
-47 Views/Categories/Details.cshtml<br/>
-34 Views/Categories/Edit.cshtml<br/>
-35 Views/Categories/Index.cshtml<br/>
-161 Views/Contacts/Create.cshtml<br/>
-69 Views/Contacts/Delete.cshtml<br/>
-72 Views/Contacts/Details.cshtml<br/>
-69 Views/Contacts/Edit.cshtml<br/>
-59 Views/Contacts/Index.cshtml<br/>
-18 Views/Contacts/ShowSearchForm.cshtml<br/>
-8 Views/Home/Index.cshtml<br/>
-6 Views/Home/Privacy.cshtml<br/>
-25 Views/Shared/Error.cshtml<br/>
-68 Views/Shared/_Layout.cshtml<br/>
-48 Views/Shared/_Layout.cshtml.css<br/>
-26 Views/Shared/_LoginPartial.cshtml<br/>
-2 Views/Shared/_ValidationScriptsPartial.cshtml<br/>
-43 Views/Simps/Category_Create.cshtml<br/>
-38 Views/Simps/Category_Delete.cshtml<br/>
-58 Views/Simps/Category_Details.cshtml<br/>
-46 Views/Simps/Category_Edit.cshtml<br/>
-46 Views/Simps/Category_Index.cshtml<br/>
-169 Views/Simps/Contact_Create.cshtml<br/>
-79 Views/Simps/Contact_Delete.cshtml<br/>
-83 Views/Simps/Contact_Details.cshtml<br/>
-80 Views/Simps/Contact_Edit.cshtml<br/>
-117 Views/Simps/Contact_Index.cshtml<br/>
-29 Views/Simps/Contact_Search.cshtml<br/>
-283 Views/Simps/Index.cshtml<br/>
-49 Views/Simps/Subcategory_Create.cshtml<br/>
-44 Views/Simps/Subcategory_Delete.cshtml<br/>
-47 Views/Simps/Subcategory_Details.cshtml<br/>
-50 Views/Simps/Subcategory_Edit.cshtml<br/>
-52 Views/Simps/Subcategory_Index.cshtml<br/>
-286 Views/Spas/Create.cshtml<br/>
-69 Views/Spas/Delete.cshtml<br/>
-72 Views/Spas/Details.cshtml<br/>
-71 Views/Spas/Edit.cshtml<br/>
-128 Views/Spas/Index.cshtml<br/>
-174 Views/Spas/ShowContactIndex.cshtml<br/>
-37 Views/Subcategories/Create.cshtml<br/>
-33 Views/Subcategories/Delete.cshtml<br/>
-36 Views/Subcategories/Details.cshtml<br/>
-39 Views/Subcategories/Edit.cshtml<br/>
-41 Views/Subcategories/Index.cshtml<br/>
-3 Views/_ViewImports.cshtml<br/>
-3 Views/_ViewStart.cshtml<br/>
-<b>2_931 TOTAL</b><br/><br/>
+git ls-files | xargs wc -l | grep ".*Views/.*"
+33 Views/Categories/Create.cshtml
+27 Views/Categories/Delete.cshtml
+47 Views/Categories/Details.cshtml
+34 Views/Categories/Edit.cshtml
+35 Views/Categories/Index.cshtml
+161 Views/Contacts/Create.cshtml
+69 Views/Contacts/Delete.cshtml
+72 Views/Contacts/Details.cshtml
+69 Views/Contacts/Edit.cshtml
+59 Views/Contacts/Index.cshtml
+18 Views/Contacts/ShowSearchForm.cshtml
+8 Views/Home/Index.cshtml
+6 Views/Home/Privacy.cshtml
+25 Views/Shared/Error.cshtml
+68 Views/Shared/_Layout.cshtml
+48 Views/Shared/_Layout.cshtml.css
+26 Views/Shared/_LoginPartial.cshtml
+2 Views/Shared/_ValidationScriptsPartial.cshtml
+43 Views/Simps/Category_Create.cshtml
+38 Views/Simps/Category_Delete.cshtml
+58 Views/Simps/Category_Details.cshtml
+46 Views/Simps/Category_Edit.cshtml
+46 Views/Simps/Category_Index.cshtml
+169 Views/Simps/Contact_Create.cshtml
+79 Views/Simps/Contact_Delete.cshtml
+83 Views/Simps/Contact_Details.cshtml
+80 Views/Simps/Contact_Edit.cshtml
+117 Views/Simps/Contact_Index.cshtml
+29 Views/Simps/Contact_Search.cshtml
+283 Views/Simps/Index.cshtml
+49 Views/Simps/Subcategory_Create.cshtml
+44 Views/Simps/Subcategory_Delete.cshtml
+47 Views/Simps/Subcategory_Details.cshtml
+50 Views/Simps/Subcategory_Edit.cshtml<
+52 Views/Simps/Subcategory_Index.cshtml
+286 Views/Spas/Create.cshtml
+69 Views/Spas/Delete.cshtml
+72 Views/Spas/Details.cshtml
+71 Views/Spas/Edit.cshtml
+128 Views/Spas/Index.cshtml
+174 Views/Spas/ShowContactIndex.cshtml
+37 Views/Subcategories/Create.cshtml
+33 Views/Subcategories/Delete.cshtml
+36 Views/Subcategories/Details.cshtml
+39 Views/Subcategories/Edit.cshtml
+41 Views/Subcategories/Index.cshtml
+3 Views/_ViewImports.cshtml
+3 Views/_ViewStart.cshtml
+2_931 TOTAL
 
-git ls-files | xargs wc -l | grep ".*wwwroot/js/site.js.*"<br/>
-239 wwwroot/js/site.js<br/><br/>
+git ls-files | xargs wc -l | grep ".*wwwroot/js/site.js.*"
+239 wwwroot/js/site.js
 
-git ls-files | xargs wc -l | grep ".*wwwroot/css/site.css.*"<br/>
-29 wwwroot/css/site.css<br/><br/>
+git ls-files | xargs wc -l | grep ".*wwwroot/css/site.css.*"
+29 wwwroot/css/site.css
 
-git ls-files | xargs wc -l | grep ".*SQL_Test/.*"<br/>
-28 SQL_Test/add_ferign_key.sql<br/>
-10 SQL_Test/add_key_category.sql<br/>
-24 SQL_Test/add_unique_email.sql<br/>
-6 SQL_Test/delete_all.sql<br/>
-8 SQL_Test/foreign_keys.txt<br/>
-6 SQL_Test/reset_id_numeration.sql<br/>
-2 SQL_Test/select_all.sql<br/>
-15 SQL_Test/test_add.sql<br/>
-<b>99 TOTAL</b><br/><br/>
-<b>5_224 TOTALS TOTAL LINES OF CODE (self-written)</b><br/>
+git ls-files | xargs wc -l | grep ".*SQL_Test/.*"
+28 SQL_Test/add_ferign_key.sql
+10 SQL_Test/add_key_category.sql
+24 SQL_Test/add_unique_email.sql
+6 SQL_Test/delete_all.sql
+8 SQL_Test/foreign_keys.txt
+6 SQL_Test/reset_id_numeration.sql
+2 SQL_Test/select_all.sql
+15 SQL_Test/test_add.sql
+99 TOTAL<
+5_224 TOTALS TOTAL LINES OF CODE (self-written)
 ```
 
 
