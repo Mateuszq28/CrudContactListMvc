@@ -87,10 +87,14 @@ I also put some handy SQL queries in SQL_Test folder.<br/>
 <p align="center">
 <img src="readme_img/sql_contact_table.png" alt="Contact Table"><br/>
 <i>Contact Table</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/sql_category_table.png" alt="Category Table"><br/>
 <i>Contact Table</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/sql_subcategory_table.png" alt="Subcategory Table"><br/>
 <i>Subcategory Table</i><br/>
 </p>
@@ -98,70 +102,100 @@ I also put some handy SQL queries in SQL_Test folder.<br/>
 <h1>Features</h1>
 
 <h2>Login</h2>
+
 ```csharp
 [Authorize]
 public IActionResult Contact_Create(IFormCollection form)
 {
 ```
+
+<p align="center">
 <i>Using .Net Autorize attribute to acces to create form. This attribute is added not only on the GET view function, but also in function that add record to the database.</i><br/>
 <i>[Attribute] in C# is an analogue to a @decorator in Python.</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/authorize.png" alt="Login Page"><br/>
 <i>Login Page</i><br/>
+</p>
 
 <h2>Viewing Contact List</h2>
 
+<p align="center">
 <img src="readme_img/contact_index_standard_view.png" alt="Contact List - Index"><br/>
 <i>Contact List - Index</i><br/>
 <i>Standard MVC View (Razor Page)</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/contact_index_spa_ajax_view.png" alt="Contact List - Index"><br/>
 <i>Contact List - Index</i><br/>
 <i>Single Page Application - partial view obtain from AJAX functionality</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/contact_index_rest_json_view.png" alt="Contact List - Index"><br/>
 <i>Contact List - Index</i><br/>
 <i>REST API capabilities presentation</i><br/>
 <i>Server response received in JSON format</i><br/>
 <i>It can be usd to fill independent html-json template.</i><br/>
 <i>It can also be used for different kinds of application, ex. interconection with a smartphone app.</i><br/>
+</p>
 
 <h2>Viewing Category List</h2>
 
+<p align="center">
 <img src="readme_img/category_index.png" alt="Category List - Index"><br/>
 <i>Category List - Index</i><br/>
 <i>Standard MVC View (Razor Page)</i><br/>
+</p>
 
 <h2>Viewing Subcategory List</h2>
 
+<p align="center">
 <img src="readme_img/subcategory_index_page.png" alt="Subcategory List - Index"><br/>
 <i>Subcategory List - Index</i><br/>
 <i>Standard MVC View (Razor Page)</i><br/>
+</p>
 
 <h2>CRUD operations</h2>
 
+<p align="center">
 <img src="readme_img/contact_details.png" alt="Details View"><br/>
 <i>Details View</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/contact_edit.png" alt="Contact Edit"><br/>
 <i>Contact Edit</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/contact_delete.png" alt="Delete Confirmation"><br/>
 <i>Delete Confirmation</i><br/>
+</p>
 
 <h2>Create Operation</h2>
 
+<p align="center">
 <img src="readme_img/create_form_secure.png" alt="Checking create form fields"><br/>
 <i>Checking create form fields</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/create_business.png" alt="Subcategory - Business"><br/>
 <i>Subcategory - Business</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/create_private.png" alt="Subcategory - Private"><br/>
 <i>Subcategory - Private</i><br/>
+</p>
 
+<p align="center">
 <img src="readme_img/create_other.png" alt="Subcategory - Other"><br/>
 <i>Subcategory - Other</i><br/>
+</p>
 
 ```js
 function CheckEmail()
@@ -175,7 +209,10 @@ function CheckEmail()
 
 }
 ```
+
+<p align="center">
 <i>Email uniqueness condition in Java Script</i>
+</p>
 
 ```sql
 ALTER TABLE Contact
@@ -184,7 +221,10 @@ DROP COLUMN Email;
 ALTER TABLE Contact
 ADD Email NVARCHAR (320) UNIQUE NOT NULL;
 ```
+
+<p align="center">
 <i>Email uniqueness secure column in SQL Server</i>
+</p>
 
 <h1>Stuff to do - to finish the project</h1>
 <ol>
@@ -224,146 +264,173 @@ ADD Email NVARCHAR (320) UNIQUE NOT NULL;
 <h1>Compilation and run notes</h1>
 
 ```shell
-It needs dotnet SDK to compile.<br/>
-The easiest way to start is to install Visual Studio with .NET Core, Web module.<br/><br/>
-open folder in terminal (cmd + enter in File Explorer path field)<br/>
-git clone git@github.com:Mateuszq28/CrudContactListMvc.git<br/>
-cd CrudContactListMvc<br/>
-dotnet build<br/>
-cp -r wwwroot ./bin/Debug/net8.0/wwwroot<br/>
-./bin/Debug/net8.0/CrudContactListMvc<br/>
-ctr+shift+t<br/>
-explorer "http://localhost:5000/"<br/>
+It needs dotnet SDK to compile.
+The easiest way to start is to install Visual Studio with .NET Core, Web module.
+open folder in terminal (cmd + enter in File Explorer path field)
+git clone git@github.com:Mateuszq28/CrudContactListMvc.git
+cd CrudContactListMvc
+dotnet build
+cp -r wwwroot ./bin/Debug/net8.0/wwwroot
+./bin/Debug/net8.0/CrudContactListMvc
+ctr+shift+t
+explorer "http://localhost:5000/"
 ```
 
 <h2>Alternative Command</h2>
-<p>
-    dotnet run build<br/>
-</p>
+
+```shell
+dotnet run build
+```
 
 <h1>Code Statistics</h1>
 <h2>Lines of Code</h2>
-<p>
-    <i>To use popular linux commands on windows you can use cmder terminal.</i>
-    <h3>list all</h3>
-    git ls-files | xargs wc -l<br/>
-    83_778 Lines of code (most generated by Visual Studio)<br/>
 
-    <h3>list all self-written</h3>
-    git ls-files | xargs wc -l | grep -e ".*Models/.*" -e ".*Controllers/.*" -e ".*Views/.*" -e ".*wwwroot/js/site.js.*" -e ".*wwwroot/css/site.css.*" -e ".*SQL_Test/.*"<br/>
+<i>To use popular linux commands on windows you can use cmder terminal.</i>
 
-    <h3>list by category</h3>
-    <b>Models</b><br/>
-    git ls-files | xargs wc -l | grep ".*Models/.*"<br/>
-    <b>Controllers</b><br/>
-    git ls-files | xargs wc -l | grep ".*Controllers/.*"<br/>
-    <b>Views</b><br/>
-    git ls-files | xargs wc -l | grep ".*Views/.*"<br/>
-    <b>wwwroot/js/site.js</b><br/>
-    git ls-files | xargs wc -l | grep ".*wwwroot/js/site.js.*"<br/>
-    <b>wwwroot/css/site.css</b><br/>
-    git ls-files | xargs wc -l | grep ".*wwwroot/css/site.css.*"<br/>
-    <b>SQL_Test</b><br/>
-    git ls-files | xargs wc -l | grep ".*SQL_Test/.*"<br/>
+<h3>list all</h3>
 
-    <h4>list by category results</h4>
-    <p>
-        git ls-files | xargs wc -l | grep ".*Models/.*"<br/>
-        25 Models/Category.cs<br/>
-        66 Models/Contact.cs<br/>
-        9 Models/ErrorViewModel.cs<br/>
-        172 Models/SeedData.cs<br/>
-        15 Models/Simp.cs<br/>
-        15 Models/Spa.cs<br/>
-        22 Models/Subcategory.cs<br/>
-        <b>315 TOTAL</b><br/><br/>
+```shell
+git ls-files | xargs wc -l
+```
 
-        git ls-files | xargs wc -l | grep ".*Controllers/.*"<br/>
-        172 Controllers/CategoriesController.cs<br/>
-        288 Controllers/ContactsController.cs<br/>   
-        32 Controllers/HomeController.cs<br/>
-        630 Controllers/SimpsController.cs<br/>
-        624 Controllers/SimpsControllerAPI.cs<br/>
-        316 Controllers/SpasController.cs<br/>
-        173 Controllers/SubcategoriesController.cs<br/>
-        <b>1_611 TOTAL</b><br/><br/>
+83_778 Lines of code (most generated by Visual Studio)<br/>
 
-        git ls-files | xargs wc -l | grep ".*Views/.*"<br/>
-        33 Views/Categories/Create.cshtml<br/>
-        27 Views/Categories/Delete.cshtml<br/>
-        47 Views/Categories/Details.cshtml<br/>
-        34 Views/Categories/Edit.cshtml<br/>
-        35 Views/Categories/Index.cshtml<br/>
-        161 Views/Contacts/Create.cshtml<br/>
-        69 Views/Contacts/Delete.cshtml<br/>
-        72 Views/Contacts/Details.cshtml<br/>
-        69 Views/Contacts/Edit.cshtml<br/>
-        59 Views/Contacts/Index.cshtml<br/>
-        18 Views/Contacts/ShowSearchForm.cshtml<br/>
-        8 Views/Home/Index.cshtml<br/>
-        6 Views/Home/Privacy.cshtml<br/>
-        25 Views/Shared/Error.cshtml<br/>
-        68 Views/Shared/_Layout.cshtml<br/>
-        48 Views/Shared/_Layout.cshtml.css<br/>
-        26 Views/Shared/_LoginPartial.cshtml<br/>
-        2 Views/Shared/_ValidationScriptsPartial.cshtml<br/>
-        43 Views/Simps/Category_Create.cshtml<br/>
-        38 Views/Simps/Category_Delete.cshtml<br/>
-        58 Views/Simps/Category_Details.cshtml<br/>
-        46 Views/Simps/Category_Edit.cshtml<br/>
-        46 Views/Simps/Category_Index.cshtml<br/>
-        169 Views/Simps/Contact_Create.cshtml<br/>
-        79 Views/Simps/Contact_Delete.cshtml<br/>
-        83 Views/Simps/Contact_Details.cshtml<br/>
-        80 Views/Simps/Contact_Edit.cshtml<br/>
-        117 Views/Simps/Contact_Index.cshtml<br/>
-        29 Views/Simps/Contact_Search.cshtml<br/>
-        283 Views/Simps/Index.cshtml<br/>
-        49 Views/Simps/Subcategory_Create.cshtml<br/>
-        44 Views/Simps/Subcategory_Delete.cshtml<br/>
-        47 Views/Simps/Subcategory_Details.cshtml<br/>
-        50 Views/Simps/Subcategory_Edit.cshtml<br/>
-        52 Views/Simps/Subcategory_Index.cshtml<br/>
-        286 Views/Spas/Create.cshtml<br/>
-        69 Views/Spas/Delete.cshtml<br/>
-        72 Views/Spas/Details.cshtml<br/>
-        71 Views/Spas/Edit.cshtml<br/>
-        128 Views/Spas/Index.cshtml<br/>
-        174 Views/Spas/ShowContactIndex.cshtml<br/>
-        37 Views/Subcategories/Create.cshtml<br/>
-        33 Views/Subcategories/Delete.cshtml<br/>
-        36 Views/Subcategories/Details.cshtml<br/>
-        39 Views/Subcategories/Edit.cshtml<br/>
-        41 Views/Subcategories/Index.cshtml<br/>
-        3 Views/_ViewImports.cshtml<br/>
-        3 Views/_ViewStart.cshtml<br/>
-        <b>2_931 TOTAL</b><br/><br/>
+<h3>list all self-written</h3>
 
-        git ls-files | xargs wc -l | grep ".*wwwroot/js/site.js.*"<br/>
-        239 wwwroot/js/site.js<br/><br/>
-        
-        git ls-files | xargs wc -l | grep ".*wwwroot/css/site.css.*"<br/>
-        29 wwwroot/css/site.css<br/><br/>
+```shell
+git ls-files | xargs wc -l | grep -e ".*Models/.*" -e ".*Controllers/.*" -e ".*Views/.*" -e ".*wwwroot/js/site.js.*" -e ".*wwwroot/css/site.css.*" -e ".*SQL_Test/.*"
+```
 
-        git ls-files | xargs wc -l | grep ".*SQL_Test/.*"<br/>
-        28 SQL_Test/add_ferign_key.sql<br/>
-        10 SQL_Test/add_key_category.sql<br/>
-        24 SQL_Test/add_unique_email.sql<br/>
-        6 SQL_Test/delete_all.sql<br/>
-        8 SQL_Test/foreign_keys.txt<br/>
-        6 SQL_Test/reset_id_numeration.sql<br/>
-        2 SQL_Test/select_all.sql<br/>
-        15 SQL_Test/test_add.sql<br/>
-        <b>99 TOTAL</b><br/><br/>
-        <b>5_224 TOTALS TOTAL LINES OF CODE (self-written)</b><br/>
-    </P>
-</p>
+<h3>list by category</h3>
 
-    
+<b>Models</b><br/>
 
-    
+```shell
+git ls-files | xargs wc -l | grep ".*Models/.*"
+```
 
+<b>Controllers</b><br/>
 
+```shell
+git ls-files | xargs wc -l | grep ".*Controllers/.*"
+```
+
+<b>Views</b><br/>
+
+```shell
+git ls-files | xargs wc -l | grep ".*Views/.*"
+```
+
+<b>wwwroot/js/site.js</b>
+
+```shell
+git ls-files | xargs wc -l | grep ".*wwwroot/js/site.js.*"
+```
+
+<b>wwwroot/css/site.css</b><br/>
+
+```shell
+git ls-files | xargs wc -l | grep ".*wwwroot/css/site.css.*"
+```
+
+<b>SQL_Test</b><br/>
+
+```shell
+git ls-files | xargs wc -l | grep ".*SQL_Test/.*"
+```
+
+<h4>list by category results</h4>
+
+```shell
+git ls-files | xargs wc -l | grep ".*Models/.*"<br/>
+25 Models/Category.cs<br/>
+66 Models/Contact.cs<br/>
+9 Models/ErrorViewModel.cs<br/>
+172 Models/SeedData.cs<br/>
+15 Models/Simp.cs<br/>
+15 Models/Spa.cs<br/>
+22 Models/Subcategory.cs<br/>
+<b>315 TOTAL</b><br/><br/>
+
+git ls-files | xargs wc -l | grep ".*Controllers/.*"<br/>
+172 Controllers/CategoriesController.cs<br/>
+288 Controllers/ContactsController.cs<br/>   
+32 Controllers/HomeController.cs<br/>
+630 Controllers/SimpsController.cs<br/>
+624 Controllers/SimpsControllerAPI.cs<br/>
+316 Controllers/SpasController.cs<br/>
+173 Controllers/SubcategoriesController.cs<br/>
+<b>1_611 TOTAL</b><br/><br/>
+
+git ls-files | xargs wc -l | grep ".*Views/.*"<br/>
+33 Views/Categories/Create.cshtml<br/>
+27 Views/Categories/Delete.cshtml<br/>
+47 Views/Categories/Details.cshtml<br/>
+34 Views/Categories/Edit.cshtml<br/>
+35 Views/Categories/Index.cshtml<br/>
+161 Views/Contacts/Create.cshtml<br/>
+69 Views/Contacts/Delete.cshtml<br/>
+72 Views/Contacts/Details.cshtml<br/>
+69 Views/Contacts/Edit.cshtml<br/>
+59 Views/Contacts/Index.cshtml<br/>
+18 Views/Contacts/ShowSearchForm.cshtml<br/>
+8 Views/Home/Index.cshtml<br/>
+6 Views/Home/Privacy.cshtml<br/>
+25 Views/Shared/Error.cshtml<br/>
+68 Views/Shared/_Layout.cshtml<br/>
+48 Views/Shared/_Layout.cshtml.css<br/>
+26 Views/Shared/_LoginPartial.cshtml<br/>
+2 Views/Shared/_ValidationScriptsPartial.cshtml<br/>
+43 Views/Simps/Category_Create.cshtml<br/>
+38 Views/Simps/Category_Delete.cshtml<br/>
+58 Views/Simps/Category_Details.cshtml<br/>
+46 Views/Simps/Category_Edit.cshtml<br/>
+46 Views/Simps/Category_Index.cshtml<br/>
+169 Views/Simps/Contact_Create.cshtml<br/>
+79 Views/Simps/Contact_Delete.cshtml<br/>
+83 Views/Simps/Contact_Details.cshtml<br/>
+80 Views/Simps/Contact_Edit.cshtml<br/>
+117 Views/Simps/Contact_Index.cshtml<br/>
+29 Views/Simps/Contact_Search.cshtml<br/>
+283 Views/Simps/Index.cshtml<br/>
+49 Views/Simps/Subcategory_Create.cshtml<br/>
+44 Views/Simps/Subcategory_Delete.cshtml<br/>
+47 Views/Simps/Subcategory_Details.cshtml<br/>
+50 Views/Simps/Subcategory_Edit.cshtml<br/>
+52 Views/Simps/Subcategory_Index.cshtml<br/>
+286 Views/Spas/Create.cshtml<br/>
+69 Views/Spas/Delete.cshtml<br/>
+72 Views/Spas/Details.cshtml<br/>
+71 Views/Spas/Edit.cshtml<br/>
+128 Views/Spas/Index.cshtml<br/>
+174 Views/Spas/ShowContactIndex.cshtml<br/>
+37 Views/Subcategories/Create.cshtml<br/>
+33 Views/Subcategories/Delete.cshtml<br/>
+36 Views/Subcategories/Details.cshtml<br/>
+39 Views/Subcategories/Edit.cshtml<br/>
+41 Views/Subcategories/Index.cshtml<br/>
+3 Views/_ViewImports.cshtml<br/>
+3 Views/_ViewStart.cshtml<br/>
+<b>2_931 TOTAL</b><br/><br/>
+
+git ls-files | xargs wc -l | grep ".*wwwroot/js/site.js.*"<br/>
+239 wwwroot/js/site.js<br/><br/>
+
+git ls-files | xargs wc -l | grep ".*wwwroot/css/site.css.*"<br/>
+29 wwwroot/css/site.css<br/><br/>
+
+git ls-files | xargs wc -l | grep ".*SQL_Test/.*"<br/>
+28 SQL_Test/add_ferign_key.sql<br/>
+10 SQL_Test/add_key_category.sql<br/>
+24 SQL_Test/add_unique_email.sql<br/>
+6 SQL_Test/delete_all.sql<br/>
+8 SQL_Test/foreign_keys.txt<br/>
+6 SQL_Test/reset_id_numeration.sql<br/>
+2 SQL_Test/select_all.sql<br/>
+15 SQL_Test/test_add.sql<br/>
+<b>99 TOTAL</b><br/><br/>
+<b>5_224 TOTALS TOTAL LINES OF CODE (self-written)</b><br/>
+```
 
 
 
