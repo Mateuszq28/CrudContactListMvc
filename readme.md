@@ -39,21 +39,23 @@ Programming w/ Professor Sluiter<br/>
     The app contains 4 type of different aproaches to make a web app.<br/>
     <ol>
         <li>Classical MVC - full page exchanging and reloading</li>
-        <li>AJAX partial view exchanging with self-reference</li>
+        <li>AJAX partial view exchanging with self-reference (matryoshka)</li>
         <li>AJAX partial view exchanging with <b>no</b> self-reference</li>
         <li>REST API JSON exchange</li>
     </ol>
-    In the future it is planned to transform REST API responses and paste obtain text elements into html tags.<br/>
+    In the future it is planned to transform REST API responses and paste obtained text elements into html tags.<br/>
+    Current State:<br/>
+    Single Page Application matryoshka, Single Page Application (with no self-reference) and REST api (/api) are just demonstrations (to develop in future).
 </p>
 
 <p align="center"><img src="readme_img/app_menu.png" alt="Application menu bar"><br/>
 <i>Application menu bar</i></p><br/>
+<p align="center"><img src="readme_img/rest_api.png" alt="REST API response"><br/>
+<i>REST API response</i></p><br/>
 <p align="center"><img src="readme_img/model-view-controller-light-blue.jpg" alt="Model View Controler Architecture"><br/>
 <i>Model View Controler Architecture <a href="https://developer.mozilla.org/en-US/docs/Glossary/MVC">img source</a></i></p><br/>
 <p align="center"><img src="readme_img/ajax.gif" alt="Ajax Architecture"><br/>
 <i>Ajax Architecture <a href="https://www.w3schools.com/xml/ajax_intro.asp">img source</a></i></p><br/>
-<p align="center"><img src="readme_img/rest_api.png" alt="REST API response"><br/>
-<i>REST API response</i></p><br/>
 
 
 <h1>Main Classes</h1>
@@ -83,7 +85,7 @@ I also put some handy SQL queries in SQL_Test folder.<br/>
 
 <h1>Database</h1>
 <p align="justify">
-    I used default Visual Studio Database server - SQL Server. I didn't have to create it from scratch. I used scaffolding. First, a migration was created with a Add-Migration InitialCreate command. Migration is a .Net class to generate database based on classes defined in Model folder. Then, command Update-Database apply Migration and create the Database. SQL table's definitions are accessible from Visual Studio manager. Some corrections are required. Ex. There is no [Unique] atribute in dotnet framework, that I used (.Net 8.0). I needed to apply SQL querry to secure uniqueness of email field. I could have used email as a primery key, but form my experience, it would bring a lot of problems and I would not recomend this.
+    I used default Visual Studio Database server - SQL Server. I didn't have to create it from scratch. I used scaffolding. First, a migration was created with a Add-Migration InitialCreate command. Migration is a .Net class to generate database based on classes defined in Model folder. Then, command Update-Database apply Migration and create the Database. SQL table's definitions are accessible from Visual Studio manager. Some corrections are required. Ex. There is no [Unique] atribute in dotnet framework, that I used (.Net 8.0). I needed to apply SQL querry to secure uniqueness of email field. I could have used email as a primery key, but from my experience, it would bring a lot of problems and I would not recomend this.
 </p>
 
 <p align="center">
