@@ -44,6 +44,7 @@ Programming w/ Professor Sluiter<br/>
         <li>REST API JSON exchange</li>
     </ol>
     In the future it is planned to transform REST API responses and paste obtained text elements into html tags.<br/>
+    <br/>
     Current State:<br/>
     Single Page Application matryoshka, Single Page Application (with no self-reference) and REST api (/api) are just demonstrations (to develop in future).
 </p>
